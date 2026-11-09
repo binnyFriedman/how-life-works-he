@@ -160,8 +160,96 @@
     }
     if (backdrop) backdrop.addEventListener("click", function () { setDrawer(false); });
     if (drawerClose) drawerClose.addEventListener("click", function () { setDrawer(false); });
+    function nativeFullscreenElement() {
+      return (
+        document.fullscreenElement ||
+        document.webkitFullscreenElement ||
+        null
+      );
+    }
+
+    function canNativeFullscreen() {
+      return !!(
+        document.documentElement.requestFullscreen ||
+        document.documentElement.webkitRequestFullscreen
+      );
+    }
+
+    function requestNativeFullscreen() {
+      var el = document.documentElement;
+      if (el.requestFullscreen) return el.requestFullscreen();
+      if (el.webkitRequestFullscreen) return el.webkitRequestFullscreen();
+      return Promise.reject();
+    }
+
+    function exitNativeFullscreen() {
+      if (document.exitFullscreen) return document.exitFullscreen();
+      if (document.webkitExitFullscreen) return document.webkitExitFullscreen();
+      return Promise.resolve();
+    }
+
+    function syncFullscreenUi(active) {
+      document.body.classList.toggle("is-fullscreen", active);
+      var btn = document.getElementById("fullscreen-toggle");
+      if (!btn) return;
+      btn.setAttribute("aria-pressed", active ? "true" : "false");
+      btn.textContent = active ? "יציאה" : "מסך מלא";
+      btn.title = active ? "יציאה ממסך מלא" : "מסך מלא";
+    }
+
+    function enterFullscreen() {
+      setDrawer(false);
+      syncFullscreenUi(true);
+      if (!canNativeFullscreen()) return;
+      try {
+        var result = requestNativeFullscreen();
+        if (result && typeof result.catch === "function") {
+          result.catch(function () {
+            /* CSS immersive fallback already on */
+          });
+        }
+      } catch (e) {}
+    }
+
+    function leaveFullscreen() {
+      syncFullscreenUi(false);
+      if (nativeFullscreenElement()) {
+        try {
+          exitNativeFullscreen();
+        } catch (e) {}
+      }
+    }
+
+    function toggleFullscreen() {
+      if (document.body.classList.contains("is-fullscreen") || nativeFullscreenElement()) {
+        leaveFullscreen();
+      } else {
+        enterFullscreen();
+      }
+    }
+
+    var fullscreenBtn = document.getElementById("fullscreen-toggle");
+    if (fullscreenBtn) {
+      fullscreenBtn.addEventListener("click", toggleFullscreen);
+    }
+    function onNativeFullscreenChange() {
+      if (nativeFullscreenElement()) {
+        syncFullscreenUi(true);
+      } else if (canNativeFullscreen()) {
+        // Browser exited native fullscreen (Esc / gesture); clear immersive chrome.
+        syncFullscreenUi(false);
+      }
+    }
+    document.addEventListener("fullscreenchange", onNativeFullscreenChange);
+    document.addEventListener("webkitfullscreenchange", onNativeFullscreenChange);
+
     document.addEventListener("keydown", function (e) {
-      if (e.key === "Escape") setDrawer(false);
+      if (e.key === "Escape") {
+        setDrawer(false);
+        if (document.body.classList.contains("is-fullscreen") && !nativeFullscreenElement()) {
+          leaveFullscreen();
+        }
+      }
     });
 
     var scrollTimer = null;

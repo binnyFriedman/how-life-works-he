@@ -136,6 +136,35 @@ body::before {
   margin-inline-start: 0.25rem;
 }
 
+body.is-fullscreen .topnav .brand,
+body.is-fullscreen .topnav .home-link,
+body.is-fullscreen .topnav .font-controls,
+body.is-fullscreen .topnav .theme-toggle,
+body.is-fullscreen .topnav .menu-toggle {
+  display: none;
+}
+
+body.is-fullscreen .topnav {
+  justify-content: flex-end;
+  padding-block: 0.45rem;
+  background: rgba(10, 22, 28, 0.55);
+}
+
+body.is-fullscreen .stage {
+  margin: 0.75rem auto 2rem;
+  max-width: min(calc(var(--measure) + 4rem), 100%);
+}
+
+body.is-fullscreen .page {
+  border-radius: 0;
+  min-height: calc(100vh - 3.5rem);
+  box-shadow: none;
+}
+
+body.is-fullscreen .chapter-nav {
+  margin-bottom: 2rem;
+}
+
 .menu-toggle {
   order: -1;
 }
