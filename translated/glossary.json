@@ -1,0 +1,174 @@
+{
+  "version": 2,
+  "terms": [
+    {
+      "id": "Prologue",
+      "source": "Prologue",
+      "target": "פרולוג",
+      "category": "heading",
+      "aliases": [],
+      "gender": "unknown",
+      "confidence": "high",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": "Gemini winner lock"
+    },
+    {
+      "id": "blueprint",
+      "source": "blueprint",
+      "target": "תוכנית המתאר",
+      "category": "metaphor",
+      "aliases": [],
+      "gender": "unknown",
+      "confidence": "high",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": "Gemini prologue lock"
+    },
+    {
+      "id": "instruction book",
+      "source": "instruction book",
+      "target": "ספר ההוראות",
+      "category": "metaphor",
+      "aliases": [
+        "instruction booklet"
+      ],
+      "gender": "unknown",
+      "confidence": "high",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": ""
+    },
+    {
+      "id": "language of life",
+      "source": "language of life",
+      "target": "שפת החיים",
+      "category": "metaphor",
+      "aliases": [],
+      "gender": "unknown",
+      "confidence": "high",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": ""
+    },
+    {
+      "id": "book of life",
+      "source": "book of life",
+      "target": "ספר החיים",
+      "category": "metaphor",
+      "aliases": [],
+      "gender": "unknown",
+      "confidence": "high",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": ""
+    },
+    {
+      "id": "Human Genome Project",
+      "source": "Human Genome Project",
+      "target": "פרויקט הגנום האנושי (HGP)",
+      "category": "organization",
+      "aliases": [
+        "HGP"
+      ],
+      "gender": "unknown",
+      "confidence": "high",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": ""
+    },
+    {
+      "id": "Bill Clinton",
+      "source": "Bill Clinton",
+      "target": "ביל קלינטון",
+      "category": "person",
+      "aliases": [],
+      "gender": "male",
+      "confidence": "high",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": ""
+    },
+    {
+      "id": "Francis Collins",
+      "source": "Francis Collins",
+      "target": "פרנסיס קולינס",
+      "category": "person",
+      "aliases": [],
+      "gender": "male",
+      "confidence": "high",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": ""
+    },
+    {
+      "id": "Craig Venter",
+      "source": "Craig Venter",
+      "target": "קרייג ונטר",
+      "category": "person",
+      "aliases": [],
+      "gender": "male",
+      "confidence": "high",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": ""
+    },
+    {
+      "id": "Joe Biden",
+      "source": "Joe Biden",
+      "target": "ג'ו ביידן",
+      "category": "person",
+      "aliases": [],
+      "gender": "male",
+      "confidence": "high",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": ""
+    },
+    {
+      "id": "Wellcome Collection",
+      "source": "Wellcome Collection",
+      "target": "אוסף ולקם",
+      "category": "organization",
+      "aliases": [],
+      "gender": "unknown",
+      "confidence": "medium",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": ""
+    },
+    {
+      "id": "DNA",
+      "source": "DNA",
+      "target": "DNA",
+      "category": "term",
+      "aliases": [],
+      "gender": "unknown",
+      "confidence": "high",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": "Keep Latin form per Gemini prologue"
+    },
+    {
+      "id": "fig.",
+      "source": "fig.",
+      "target": "איור",
+      "category": "term",
+      "aliases": [
+        "Fig."
+      ],
+      "gender": "unknown",
+      "confidence": "high",
+      "frequency": 0,
+      "evidence_refs": [],
+      "notes": ""
+    }
+  ],
+  "high_frequency_top_n": 20,
+  "applied_meta_hashes": {},
+  "style": {
+    "target_lang": "he",
+    "preferred_model_prologue": "gemini-4-argon-medium",
+    "register": "literary popular-science Hebrew"
+  }
+}

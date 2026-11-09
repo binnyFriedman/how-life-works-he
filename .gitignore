@@ -1,0 +1,9 @@
+
+.env
+work/
+*.pyc
+__pycache__/
+*.pdf
+.DS_Store
+.cursor/
+tests/.artifacts/

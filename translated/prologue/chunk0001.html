@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="he">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Gemini 4 Argon — How Life Works</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Sora:wght@400;600&display=swap" rel="stylesheet">
+<style>
+:root {
+  --bg0: #0f1c24;
+  --bg1: #17303b;
+  --paper: #f3f7f4;
+  --ink: #14252c;
+  --ink-soft: #3a5560;
+  --accent: #0f8f7b;
+  --accent-2: #d97706;
+  --rule: rgba(20, 37, 44, 0.12);
+  --shadow: 0 24px 60px rgba(8, 20, 26, 0.28);
+  --measure: 38rem;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  min-height: 100vh;
+  color: var(--ink);
+  background:
+    radial-gradient(1200px 700px at 10% -10%, #1f4a57 0%, transparent 55%),
+    radial-gradient(900px 600px at 100% 0%, #0b6e63 0%, transparent 45%),
+    linear-gradient(160deg, var(--bg0), var(--bg1) 55%, #10252e);
+  font-family: "Frank Ruhl Libre", "David Libre", "Noto Serif Hebrew", Georgia, serif;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  opacity: 0.08;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  mix-blend-mode: soft-light;
+  z-index: 0;
+}
+
+.topnav {
+  position: sticky;
+  top: 0;
+  z-index: 5;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.65rem 1rem;
+  align-items: center;
+  padding: 0.85rem 1.25rem;
+  backdrop-filter: blur(14px);
+  background: rgba(10, 22, 28, 0.72);
+  border-bottom: 1px solid rgba(255,255,255,0.08);
+  color: #e7f2ef;
+  font-family: "Sora", system-ui, sans-serif;
+}
+.topnav .brand { font-weight: 600; letter-spacing: 0.02em; margin-inline-end: auto; }
+.topnav a {
+  color: #9fe8d8;
+  text-decoration: none;
+  font-size: 0.92rem;
+}
+.topnav a:hover { color: #fff; text-decoration: underline; text-underline-offset: 3px; }
+
+.stage {
+  position: relative;
+  z-index: 1;
+  max-width: calc(var(--measure) + 7rem);
+  margin: 2.5rem auto 4rem;
+  padding: 0 1rem;
+}
+
+.page {
+  background:
+    linear-gradient(180deg, rgba(255,255,255,0.72), transparent 18%),
+    var(--paper);
+  border-radius: 18px;
+  box-shadow: var(--shadow);
+  padding: clamp(1.75rem, 4vw, 3.25rem) clamp(1.25rem, 4vw, 3.5rem) 3.5rem;
+  border: 1px solid rgba(255,255,255,0.35);
+  animation: rise 700ms cubic-bezier(.2,.8,.2,1) both;
+}
+
+@keyframes rise {
+  from { opacity: 0; transform: translateY(14px) scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+
+.kicker {
+  font-family: "Sora", system-ui, sans-serif;
+  font-size: 0.78rem;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin: 0 0 0.75rem;
+}
+
+.chapter {
+  font-family: "Frank Ruhl Libre", "Literata", Georgia, serif;
+  font-weight: 700;
+  font-size: clamp(2.2rem, 5vw, 3.2rem);
+  line-height: 1.15;
+  margin: 0 0 1.75rem;
+  letter-spacing: -0.01em;
+  color: #0d1f26;
+}
+
+.chapter::after {
+  content: "";
+  display: block;
+  width: 4.5rem;
+  height: 3px;
+  margin-top: 1rem;
+  border-radius: 999px;
+  background: linear-gradient(90deg, var(--accent), var(--accent-2));
+}
+
+.prose {
+  max-width: var(--measure);
+  margin: 0 0 1.15rem;
+  font-size: clamp(1.18rem, 1.05rem + 0.45vw, 1.35rem);
+  line-height: 1.85;
+  color: var(--ink);
+  text-wrap: pretty;
+  hyphens: auto;
+}
+
+.lead {
+  font-size: clamp(1.28rem, 1.1rem + 0.55vw, 1.48rem);
+  line-height: 1.8;
+  color: #102730;
+}
+
+.drop {
+  float: inline-start;
+  font-size: 4.6rem;
+  line-height: 0.8;
+  padding-inline-end: 0.12em;
+  padding-block-start: 0.12em;
+  font-weight: 700;
+  color: var(--accent);
+}
+
+.caption {
+  max-width: var(--measure);
+  margin: 1.75rem 0 0;
+  padding: 1rem 1.1rem;
+  font-family: "Sora", system-ui, sans-serif;
+  font-size: 0.92rem;
+  line-height: 1.55;
+  color: var(--ink-soft);
+  background: rgba(15, 143, 123, 0.08);
+  border-inline-start: 3px solid var(--accent);
+  border-radius: 0 10px 10px 0;
+}
+
+[dir="rtl"] .caption {
+  border-inline-start: 3px solid var(--accent);
+  border-radius: 10px 0 0 10px;
+}
+
+.meta-file {
+  font-family: "Sora", system-ui, sans-serif;
+  font-size: 0.8rem;
+  color: var(--ink-soft);
+  margin-bottom: 1.5rem;
+}
+
+::selection {
+  background: rgba(15, 143, 123, 0.28);
+}
+
+@media (max-width: 640px) {
+  .drop { font-size: 3.4rem; }
+  .page { border-radius: 14px; }
+}
+</style>
+</head>
+<body>
+<nav class="topnav">
+  <div class="brand">Gemini 4 Argon</div>
+  <a href="index.html">כל הגרסאות</a>
+  <a href="chunk0001.source.html">EN</a>
+  <a href="chunk0001.claude-opus-4-8.html">Claude</a>
+  <a href="chunk0001.gpt-5.6-terra.html">GPT</a>
+  <a href="chunk0001.gemini-4-argon.html">Gemini</a>
+</nav>
+<div class="stage">
+  <article class="page" dir="rtl">
+    <p class="kicker">How Life Works · compare pass</p>
+    <p class="meta-file">chunk0001.gemini-4-argon.md</p>
+    <h1 class="chapter">פרולוג</h1>
+<p class="prose lead"><span class="drop">ב</span>־26 ביוני 2000 הכריז נשיא ארצות הברית, ביל קלינטון, כי מדענים השלימו טיוטה ראשונה של הגנום האנושי. כלומר, הם פענחו את הרצף שבו שזורות יחדיו כמעט כל שלושת מיליארדי אבני הבניין הכימיות של ה־DNA שלנו. &quot;היום&quot;, אמר, &quot;אנו לומדים את השפה שבה ברא אלוהים את החיים&quot;.</p>
+<p class="prose">הוא טעה, אך לא (רק) במובן שאולי נדמה לכם.</p>
+<p class="prose">בני אדם רגילים, כמובן, לכך שפוליטיקאים אומרים דברים שגויים (ולא רק בנוגע למדע). ואולם שני המדענים שנכחו במעמד לא מיהרו לתקן את קלינטון. אדרבה, אחד מהם – פרנסיס קולינס, אז ראש המכונים הלאומיים לבריאות של ארצות הברית וכיום יועצו המדעי של הנשיא ג&#x27;ו ביידן – אף הדהד את אותה רוח דברים כשחגג את היכולת החדשה לקרוא את &quot;ספר ההוראות שלנו עצמנו, שעד כה היה נהיר רק לאלוהים&quot;.</p>
+<p class="prose">מדענים רבים ודאי סמרו לשמע האזכורים הדתיים הללו, אך לאמיתו של דבר לא בכך נעוצה הבעיה. (לפחות לא אם אינכם אתאיסטים או תאולוגים.) המטפורות של &quot;שפת החיים&quot; ו&quot;ספר ההוראות&quot; של האנושות משמשות כדבר שבשגרה גם כיום לתיאור הגנום האנושי, שנותח (כמעט) במלואו במסגרת פרויקט הגנום האנושי הבינלאומי (HGP), ובמקביל גם במאמץ הממומן פרטית שהוביל יזם הביוטכנולוגיה קרייג ונטר – שנכח אף הוא בטקס החשיפה והוא אתאיסט מוצהר.1</p>
+<p class="prose">בחלוף למעלה משני עשורים, המידע שסיפק איגוד HGP, ולצידו ריצופם של עשרות אלפי גנומים אנושיים נוספים מאז, מתברר כמשאב חיוני למחקר הביו־רפואי. זו הייתה התקווה מלכתחילה, וחלק משמעותי מן המשימה. אלא שהמידע הזה לא זו בלבד שכמעט לא קירב אותנו להבנת החיים עצמם, אלא שמבחינות מסוימות הוא הראה לנו שאנו רחוקים מהבנה כזו מכפי שחשבנו. שכן אם קיים בכלל דבר־מה הדומה לשפת החיים, הוא לא יימצא בגנום – שאינו דומה לשום חוברת הוראות שיצרו אי־פעם בני אדם.</p>
+<p class="prose">ובכל זאת, מטפורות מטעות לתיאור הגנום נותרו עיקשות ונפוצות כתמיד. &quot;תוכנית המתאר&quot; היא מן החביבות שבהן, ומשתמע ממנה כי בתוך מחרוזת ה&quot;קוד&quot; הזו בת שלושת מיליארדי התווים טמונה תוכנית של גוף האדם, לו רק ידענו כיצד לפענח את תחבירה. למעשה, עצם המושג &quot;קוד&quot; מרמז שהגנום משול לתוכנת מחשב – מעין אלגוריתם מוצפן שהחיים מוציאים אל הפועל. &quot;ספר החיים&quot; אף זכה להתגלמות מוחשית: הוא כולל 109 ספרים נפרדים המאוגדים ב־23 כרכים (אחד לכל אחד מהכרומוזומים שלנו), שבהם עמוד אחר עמוד צפוף גדושים ברצף של ארבע אותיות (a, t, c, g) המייצגות את אבני הבניין של ה־DNA (איור 0.1). אשמח להותיר לקורא לשפוט איזה ספר – ההוא או הנוכחי – מציג תמונה בהירה יותר של האופן שבו החיים פועלים. מטרתו של ספר זה היא להראות מדוע המטפורות הללו אינן הולמות, מדוע יש להחליפן, ומדוע לא נבין כיצד החיים פועלים עד שנעשה זאת. הוא אף מנסה לשרטט בקווים כלליים מה אפשר להציב במקומן.</p>
+<p class="prose">אין מחסור במטפורות חלופיות לגנום עצמו: הוא כבר הושווה, למשל, לפרטיטורה מוזיקלית או למחזה כתוב. אחדות מן האנלוגיות הללו הן בגדר שיפור, אם כי אף אחת מהן אינה מושלמת. אך הנקודה המרכזית היא שהפנייה אל הגנום כדי להסביר כיצד החיים פועלים דומה למדי (וגם הדימוי הזה אינו מושלם) לפנייה אל מילון כדי להבין כיצד פועלת ספרות.</p>
+<p class=" caption">איור 0.1 &quot;ספר החיים&quot;? הגנום האנושי כפי שתועד ב־109 ספרים שהופקו מתוצרי פרויקט הגנום האנושי. הספרים נוצרו בידי קר/נובל. התמונה באדיבות אוסף ולקם.</p>
+  </article>
+</div>
+</body>
+</html>
