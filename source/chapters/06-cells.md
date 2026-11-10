@@ -23,8 +23,12 @@ within the cell, which is sometimes done on a sort of rail system made from
 protein tracks called microtubules. Certain so-called motor proteins cling to
 the microtubules and step along them, carrying membraneous sacs called
 “vesicles” filled with the cargo (fig. 6.2).
+![Fig. 6.1 a: The plant cell as typically seen through a microscope. b: Robert Hooke’s drawing of cells](media/fig-6.1.png)
+
 Fig. 6.1 a: The plant cell as typically seen through a microscope. b: Robert Hooke’s drawing of cells
 in a slice of cork, from his 1665 treatise Micrographia. Image a: Shutterstock.
+![Fig. 6.2 An artistic representation of how motor proteins pull cargo-laden vesicles along the protein](media/fig-6.2.png)
+
 Fig. 6.2 An artistic representation of how motor proteins pull cargo-laden vesicles along the protein
 tracks of microtubules. Image: The Inner Life of a Cell, courtesy of Cellular Visions and
 Harvard/XVIVO.
@@ -53,6 +57,8 @@ pervade this space don’t act in quite the same way as those in a tumbler of
 water, for in such cramped confines they “feel” and respond to all the
 biomolecules around them. Biochemistry textbooks often treat the cell as
 though it was a dilute bag of chemicals, yet it is anything but.
+
+![Fig. 6.3 A snapshot of the contents of a cell. This image is from a computer model based on real](media/fig-6.3.png)
 
 Fig. 6.3 A snapshot of the contents of a cell. This image is from a computer model based on real
 microscope data from experimental studies of the varieties and numbers of copies of the various
@@ -107,6 +113,8 @@ tiny form and just gets bigger, a position called preformationism. With the
 characteristic chauvinism of the age, Hartsoeker supposed this
 “homunculus” must reside in the sperm, the seed implanted in the passive
 maternal soil of the egg.1
+![Fig. 6.4 A gallery of human cells. Left to right and top to bottom: red blood cells, heart muscle cells,](media/fig-6.4.png)
+
 Fig. 6.4 A gallery of human cells. Left to right and top to bottom: red blood cells, heart muscle cells,
 neurons, fibroblasts. Images: Shutterstock.
 
@@ -173,6 +181,8 @@ converge on a single river valley as the water flows downhill, while the
 downward motion of the metaphorical rolling ball in the Waddington
 landscape carries it to an ever more bifurcated system of valleys.
 
+![Fig. 6.5 Conrad Waddington’s “epigenetic landscape” has become one of biology’s iconic metaphors.](media/fig-6.5.png)
+
 Fig. 6.5 Conrad Waddington’s “epigenetic landscape” has become one of biology’s iconic metaphors.
 The valley branches into ever more channels as the cells become more differentiated.
 
@@ -220,8 +230,12 @@ kidneys, and blood cells; and the endoderm forms the lungs and gut, among
 other things (fig. 6.7). We’ll see later that these changes in cell varieties are
 accompanied by changes in the ways the cells are arranged in space, giving
 rise to the first intimations of a body plan.
+![Fig. 6.6 The human embryo at the embryoblast and epiblast stages. The whole embryo structure of](media/fig-6.6.png)
+
 Fig. 6.6 The human embryo at the embryoblast and epiblast stages. The whole embryo structure of
 the former is called a blastocyst.
+![Fig. 6.7 The developmental trajectories of cell lineages from totipotency to fully differentiated tissue](media/fig-6.7.png)
+
 Fig. 6.7 The developmental trajectories of cell lineages from totipotency to fully differentiated tissue
 types.
 
@@ -377,6 +391,8 @@ the zebrafish embryo. We can think of this as the bird’s-eye view of the
 Waddington landscape as it appears at some instant during embryo
 development, populated with huge numbers of cells.
 
+![Fig. 6.8 The trajectories of gene expression as cells of the zebrafish embryo acquire their fates.](media/fig-6.8.png)
+
 Fig. 6.8 The trajectories of gene expression as cells of the zebrafish embryo acquire their fates.
 Different final fates are shown in different shades. At any given stage of development, different cells
 will be at different points along these trajectories—some, for example, still in the “central pool”
@@ -523,6 +539,8 @@ web. Here the changes between cell states—the “flow” down the valleys—
 are controlled by subtle changes in the expression of whole clusters of
 genes, exerting their effects collectively and with no clear separation
 between them. In other words, here again the cells’ logic is combinatorial.
+![Fig. 6.9 The cell differentiation landscape for mouse embryos during gastrulation, from around day](media/fig-6.9.png)
+
 Fig. 6.9 The cell differentiation landscape for mouse embryos during gastrulation, from around day
 6.5 to day 8.1 of development. Each shaded stripe represents a different cell type, starting with the
 epiblast and the three basic tissue types it becomes: endoderm, mesoderm, and ectoderm. By day 8.1,
@@ -597,6 +615,8 @@ pathway inside the cell that produces some change in gene expression,
 which in turn could flip a permanent epigenetic switch. That is basically
 what happens when cells make fate decisions, and researchers have shown
 that it can be described using the tools of dynamical systems theory.
+
+![Fig. 6.10 A switch of cell state can be described using dynamical systems theory as a rearrangement](media/fig-6.10.png)
 
 Fig. 6.10 A switch of cell state can be described using dynamical systems theory as a rearrangement
 of the landscape of attractors, represented by basins. When the signal that induces the switch arrives,

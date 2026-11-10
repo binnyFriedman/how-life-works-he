@@ -117,6 +117,8 @@ airflows of the atmosphere can sometimes produce coherent structures like
 tornadoes and hurricanes. Even the furious surface of the Sun is not an
 incoherent maelstrom: the roiling plasma is organized into convecting cells
 called “solar granules” (fig. 9.1).
+![Fig. 9.1 Structure from chaos. a: A hurricane. b: Convection cells on the Sun. Image a: NASA;](media/fig-9.1.png)
+
 Fig. 9.1 Structure from chaos. a: A hurricane. b: Convection cells on the Sun. Image a: NASA;
 image b: NSO/AURA/NSF, Daniel K. Inouye Solar Telescope.
 
@@ -510,6 +512,8 @@ more likely that the faster molecules will mingle uniformly with the slower
 ones, rather than congregating into a “hot” patch by chance. Maxwell
 reasoned that there is nothing in the laws of mechanics to forbid the latter; it
 is just very unlikely.
+![Fig. 9.2 Maxwell’s demon tries to defy the Second Law of Thermodynamics by segregating “hot”](media/fig-9.2.png)
+
 Fig. 9.2 Maxwell’s demon tries to defy the Second Law of Thermodynamics by segregating “hot”
 fast-moving molecules (gray) from “cold” slower ones (black), opening a trap door to admit them
 selectively in one direction or the other. The result is that the two compartments, which start at the

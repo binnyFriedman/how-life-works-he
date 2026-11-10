@@ -52,6 +52,8 @@ of these analogies are improvements, though none is perfect. But the key
 point is that looking to the genome for an account of how life works is
 rather like (this simile is imperfect too) looking to a dictionary to
 understand how literature works.
+![Fig. 0.1 The “book of life”? The human genome as recorded in 109 books produced from the Human](media/fig-0.1.png)
+
 Fig. 0.1 The “book of life”? The human genome as recorded in 109 books produced from the Human
 Genome Project. Books made by Kerr/Noble. Image courtesy of the Wellcome Collection.
 

@@ -433,6 +433,8 @@ animal’s blood supply. Alternatively, a vascular network could be supplied
 artificially by growing an organoid on a preexisting scaffold of tubes made
 from, say, a biodegradable polymer seeded with the epithelial cells that
 make blood vessels.
+![Fig. 11.1 An “organoid” grown from human induced pluripotent stem cells that develops the somite](media/fig-11.1.png)
+
 Fig. 11.1 An “organoid” grown from human induced pluripotent stem cells that develops the somite
 compartments of the human embryo. To trigger this developmental pattern, the researchers added to
 the cell culture signaling molecules that can influence the activity of developmental genes such as
@@ -626,6 +628,8 @@ forth as though on the lookout for something. In a petri dish, many of them
 together act like a community, responding to one another’s presence and
 participating in collective activities.
 
+![Fig. 11.2 Xenobots that spontaneously form from snippets of embryonic frog tissue. Image courtesy](media/fig-11.2.png)
+
 Fig. 11.2 Xenobots that spontaneously form from snippets of embryonic frog tissue. Image courtesy
 of Douglas Blackiston and Michael Levin, Tufts University.
 
@@ -793,6 +797,8 @@ so that they produce that same structure spontaneously. This latter strategy,
 which is more like how our own bodies build themselves, has been
 expressed by Doursat as “Don’t build a system directly, but shape its
 building blocks in such a way that they do it for you.”
+
+![Fig. 11.3 Two approaches to making multicellular engineered living systems (MCELS). In the top-](media/fig-11.3.png)
 
 Fig. 11.3 Two approaches to making multicellular engineered living systems (MCELS). In the top-
 down approach we would position the cells “by hand” in each component of the device, perhaps on

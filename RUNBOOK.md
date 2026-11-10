@@ -1,33 +1,56 @@
-# How Life Works — Hebrew translation runbook
+# Book translation runbook (multi-book)
+
+Each book has an explicit profile at `books/<id>/book.json`. Nothing is inferred.
 
 ## Roles
 - **Grok / parent agent**: orchestrate (extract, chunk, queue, validate, merge, HTML, triage)
-- **Gemini 4 Argon (via Cursor Task)**: translate chunks only — default path
-- **Optional**: `scripts/translate_gemini.py` + `GEMINI_API_KEY` for cheaper bulk API runs later
+- **Gemini 4 Argon**: translate chunks only (`scripts/translate_gemini.py`)
 
-## One-time setup (Cursor path)
-1. No API key required
-2. Snapshot Cursor usage before a batch, run N chapters, snapshot after
+## Book profiles
 
-## Pipeline
 ```bash
-# 1) Extract / refresh chapter markdown
-python3 scripts/extract_chapters.py
+python3 scripts/book_config.py list
+python3 scripts/book_config.py show --book how-life-works
+python3 scripts/book_config.py use how-life-works
 
-# 2) Chunk a chapter (12k chars)
-python3 .cursor/skills/translate-book/scripts/convert.py \
-  source/chapters/00-prologue.md --olang he --chunk-size 12000 --temp-root work
-
-# 3) Translate one pending chunk
-python3 scripts/translate_gemini.py \
-  --chunk work/00-prologue_temp/chunk0001.md \
-  --out work/00-prologue_temp/output_chunk0001.md
-
-# 4) Promote when approved
-mkdir -p translated/prologue
-cp work/00-prologue_temp/output_chunk0001.md translated/prologue/chunk0001.md
+python3 scripts/new_book.py \
+  --id my-book \
+  --title "..." \
+  --title-target "..." \
+  --author "..." \
+  --author-target "..." \
+  --source-lang it \
+  --target-lang he \
+  --register "literary Modern Hebrew" \
+  --description "Author, *Title* — short note" \
+  --chunk-size 12000 \
+  --concurrency 1 \
+  --activate
 ```
 
-Queue file: `work/queue.json`
-Glossary: `translated/glossary.json`
-Lean prompt: `prompts/he-translate.md`
+Active book: `--book` → `BOOK_ID` → `books/active`. No silent fallback.
+
+### Layouts
+- `legacy-root` — How Life Works (repo-root paths)
+- `book-local` — new books under `books/<id>/`
+
+## Pipeline
+
+```bash
+python3 scripts/book_config.py use <book-id>
+python3 scripts/book_config.py show   # resolve paths
+
+python3 scripts/extract_chapters.py --book <book-id>
+
+python3 .cursor/skills/translate-book/scripts/convert.py \
+  <source_chapters>/NN-....md --olang <target_lang> --chunk-size <chunk_size> \
+  --temp-root <work>
+
+python3 scripts/translate_gemini.py --book <book-id> \
+  --chunk <work>/.../chunk0001.md \
+  --out <work>/.../output_chunk0001.md
+
+python3 scripts/build_reader_site.py --book <book-id>
+```
+
+Glossary, prompt, skip lists, and reader copy all come from that book's profile — edit `book.json`, do not share glossaries across books.

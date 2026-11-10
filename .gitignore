@@ -1,6 +1,7 @@
 
 .env
 work/
+books/*/work/
 *.pyc
 __pycache__/
 *.pdf

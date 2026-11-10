@@ -1,14 +1,18 @@
 (function () {
-  var THEME_KEY = "hlw-reader-theme";
-  var FONT_KEY = "hlw-reader-font-scale";
-  var LINE_KEY = "hlw-reader-line-scale";
-  var SCROLL_PREFIX = "hlw-reader-scroll:";
+  var root = document.documentElement;
+  var storagePrefix = root.getAttribute("data-storage-prefix");
+  if (!storagePrefix) {
+    throw new Error("Missing data-storage-prefix on <html>");
+  }
+  var THEME_KEY = storagePrefix + "-theme";
+  var FONT_KEY = storagePrefix + "-font-scale";
+  var LINE_KEY = storagePrefix + "-line-scale";
+  var SCROLL_PREFIX = storagePrefix + "-scroll:";
   var FONT_MIN = 0.85;
   var FONT_MAX = 1.45;
   var FONT_STEP = 0.08;
   var LINE_MIN = 0.95;
   var LINE_MAX = 1.25;
-  var root = document.documentElement;
 
   function preferredTheme() {
     try {

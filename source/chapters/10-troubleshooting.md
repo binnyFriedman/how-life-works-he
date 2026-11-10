@@ -93,6 +93,8 @@ People who have this condition, which can be life-threatening, tend to be
 tall and thin, with unusually long arms and legs. It is linked to a mutation of
 the FBN1 gene, which encodes a protein called fibrillin-1 that forms the
 elastic fibers giving skin, ligaments, and blood vessels their stretchiness.1
+![Fig. 10.1 Identifying disease-linked genes from GWAS data. Each dot represents a specific group of](media/fig-10.1.png)
+
 Fig. 10.1 Identifying disease-linked genes from GWAS data. Each dot represents a specific group of
 alleles that tend to be inherited together because they sit on the same part of a chromosome—a so-
 called haplotype. The different gray-scale shades denote distinct chromosomes. The height of each

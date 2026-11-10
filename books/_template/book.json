@@ -1,0 +1,40 @@
+{
+  "id": "BOOK_ID",
+  "title": "",
+  "title_target": "",
+  "author": "",
+  "author_target": "",
+  "source_lang": "",
+  "target_lang": "",
+  "layout": "book-local",
+  "register": "",
+  "description": "",
+  "storage_key_prefix": "book-BOOK_ID-reader",
+  "paths": {
+    "source_chapters": "source/chapters",
+    "work": "work",
+    "translated": "translated",
+    "glossary": "translated/glossary.json",
+    "prompt": "prompts/translate.md",
+    "docs": "docs",
+    "queue": "work/queue.json"
+  },
+  "defaults": {
+    "chunk_size": 12000,
+    "concurrency": 1,
+    "test_chapter": ""
+  },
+  "include_sections": [],
+  "skip_sections": [],
+  "extra_prompt_rules": [],
+  "extract_chapters": [],
+  "reader": {
+    "kicker": "",
+    "kicker_chapter": "",
+    "home_title": "",
+    "home_brand": "",
+    "home_lead": "",
+    "home_meta": "",
+    "chapters": []
+  }
+}

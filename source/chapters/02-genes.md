@@ -105,6 +105,8 @@ The usual story now is that those “greasy” details are mind-bogglingly
 complicated, but superfluous to a general understanding of how genes beget
 life (fig. 2.1).
 
+![Fig. 2.1 The popular view of how genes create living things. As philosopher of biology Daniel](media/fig-2.1.png)
+
 Fig. 2.1 The popular view of how genes create living things. As philosopher of biology Daniel
 Nicholson (2014) puts it, “The [metaphor of the] genetic program does not explain development, it
 merely black boxes it.”
@@ -497,6 +499,8 @@ numbers: cats have nineteen pairs, dogs thirty-nine pairs.) The gametes
 (eggs and sperm) are special in that they each contain only one set of
 chromosomes. This makes them haploid cells, as opposed to the diploid
 somatic cells.
+![Fig. 2.2 The chromosomes condense into X shapes before being separated on the filamentary protein](media/fig-2.2.png)
+
 Fig. 2.2 The chromosomes condense into X shapes before being separated on the filamentary protein
 scaffold called the mitotic spindle during cell division (mitosis).
 
@@ -542,6 +546,8 @@ crystallography (see p. 150), revealed how the hereditary information
 believed to be carried by genes may be encoded in DNA in the sequence of
 A, C, G, and T along twin strands of this natural polymer, entwined in the
 iconic double helix (fig. 2.3).8
+![Fig. 2.3 The DNA double helix: two strands of DNA are linked by weak chemical bonds called](media/fig-2.3.png)
+
 Fig. 2.3 The DNA double helix: two strands of DNA are linked by weak chemical bonds called
 hydrogen bonds (dashed lines) that bind nucleotide bases on opposite strands. C fits with G, and A
 with T. This makes one strand the complementary partner of the other: wherever an A appears in one,
@@ -595,6 +601,8 @@ world as we find it. The problem with atomizing organisms into genes is
 that genes are not alive (fig. 2.4)—and once you have set aside life to get to
 the gene, you can’t get it back again. The gene is far too atomized a unit to
 tell us much at all about how life works.
+![Fig. 2.4 Why, in a nutshell, understanding genes will not enable us to understand life.](media/fig-2.4.png)
+
 Fig. 2.4 Why, in a nutshell, understanding genes will not enable us to understand life.
 
    This is exactly why genes are depicted as “agents”—specifically, as
@@ -635,6 +643,8 @@ polymerase, puts together the mRNA using one of the strands of the DNA
 double helix as a template, while a large molecular complex called the
 ribosome, containing both proteins and other RNA molecules, translates the
 mRNA to the corresponding protein.
+![Fig. 2.5 The transfer of information from a genetic (base-pair) sequence in DNA to an amino-acid](media/fig-2.5.png)
+
 Fig. 2.5 The transfer of information from a genetic (base-pair) sequence in DNA to an amino-acid
 sequence in a protein happens in two steps: transcription, where the information is first copied into a
 messenger RNA (mRNA) molecule; and translation, where the mRNA is used to make the string of
@@ -653,6 +663,8 @@ But once the information was in the protein, it could never flow back to
 DNA or RNA, or indeed laterally from one protein to another. I’ll return to
 the Central Dogma later (box 4.2) to see how well it has stood the test of
 time.
+
+![Fig. 2.6 The Central Dogma of biology as depicted by Francis Crick in 1970. The solid arrows show](media/fig-2.6.png)
 
 Fig. 2.6 The Central Dogma of biology as depicted by Francis Crick in 1970. The solid arrows show
 what happens in general (DNA → RNA → protein), while the dashed arrows show some special
@@ -748,6 +760,8 @@ controlled in the cell. Exactly how chromatin is compacted and unraveled is
 still poorly understood, although it is very important for how the genome
 works. Specialized enzymes and protein assemblies carefully orchestrate
 the process of restructuring and repacking chromatin.
+![Fig. 2.7 The structure of chromatin: a composite of DNA and protein, in which the DNA is wound](media/fig-2.7.png)
+
 Fig. 2.7 The structure of chromatin: a composite of DNA and protein, in which the DNA is wound
 around histones and packaged into fibers.
 
@@ -924,6 +938,8 @@ finally in transcription of other genes. One sees a lot of diagrams like this in
 Nature and other journals, and they send out the message that molecular
 biology is bizarrely intricate to such a degree that it is hard to know what
 matters and what does not, or how to interpret this dance of molecules.
+![Fig. 2.8 What does the Wnt protein do? Here’s a typical picture to “illustrate” that. Each of the blobs](media/fig-2.8.png)
+
 Fig. 2.8 What does the Wnt protein do? Here’s a typical picture to “illustrate” that. Each of the blobs
 is a kind of protein. How do they fit together, and for how long? How do they move about? What is
 the role of each of them? And are you any the wiser?

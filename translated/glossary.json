@@ -167,6 +167,7 @@
   "high_frequency_top_n": 20,
   "applied_meta_hashes": {},
   "style": {
+    "source_lang": "en",
     "target_lang": "he",
     "preferred_model_prologue": "gemini-4-argon-medium",
     "register": "literary popular-science Hebrew"

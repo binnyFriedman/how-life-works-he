@@ -171,6 +171,8 @@ called nurse cells that secrete the RNA molecules required for making
 bicoid into the attached end of the egg before it is fertilized. Note that this is
 crucial information (“This way up”) for the embryo to develop properly, but
 it does not come from the embryo’s genome.
+![Fig. 8.1 Lewis Wolpert’s “French flag” model of how boundaries or segmentation of body parts can](media/fig-8.1.png)
+
 Fig. 8.1 Lewis Wolpert’s “French flag” model of how boundaries or segmentation of body parts can
 be established by thresholds in the concentration of a diffusing morphogen at which the cells
 differentiate.
@@ -184,6 +186,8 @@ segment the embryo into a head/thorax region and an abdomen region (fig.
 as well as setting up the back-belly (dorsoventral) axis. Little by little, the
 body plan emerges from this crisscrossing of positional information
 contours dispatched by morphogens.
+![Fig. 8.2 Positional information and segmentation in the fruit-fly embryo created by gradients of the](media/fig-8.2.png)
+
 Fig. 8.2 Positional information and segmentation in the fruit-fly embryo created by gradients of the
 morphogen proteins bicoid and caudal.
 
@@ -371,6 +375,8 @@ until a reviewer of their paper9 pointed it out—enabling them to see what
 his theory implied in general about the ingredients. Such schemes are now
 called reaction-diffusion systems, as they depend on the interplay of those
 two processes.
+![Fig. 8.3 a: The morphogen pattern in a ring of cells as deduced by Alan Turing. The gray scale](media/fig-8.3.png)
+
 Fig. 8.3 a: The morphogen pattern in a ring of cells as deduced by Alan Turing. The gray scale
 indicates concentration differences. b: Turing’s hand-calculated “dappled pattern” created by a
 morphogen scheme in two dimensions. c: The resemblance to animal markings (here a cheetah) was
@@ -383,6 +389,8 @@ The morphogens congregate into quasi-ordered spots and stripes, all of
 roughly the same size and separation (fig. 8.4). These outcomes—if you
 will, a chemical leopard and chemical zebra—made it all the more plausible
 that Turing patterns might explain animal markings.
+![Fig. 8.4 The two generic patterns of an activator-inhibitor scheme. Images courtesy of Jacques](media/fig-8.4.png)
+
 Fig. 8.4 The two generic patterns of an activator-inhibitor scheme. Images courtesy of Jacques
 Boissonade and Patrick De Kepper, University of Bordeaux.
 
@@ -399,6 +407,8 @@ alternative to simple gradient-based models of patterning in embryogenesis.
 Turing himself seems to have been conscious of the difficulties: he is said
 once to have remarked, apropos the zebra, “Well, the stripes are easy, but
 what about the horse part?”10
+![Fig. 8.5 Some examples of complex animal markings (left) that can be reproduced by Turing-type](media/fig-8.5.png)
+
 Fig. 8.5 Some examples of complex animal markings (left) that can be reproduced by Turing-type
 models of pattern formation (right). a, b: The reticulate whipray. c, d: The honeycomb whipray. e, f:
 The yellow-banded poison-dart frog. Images courtesy of Marcelo Malheiros, Universidade Federal
@@ -537,6 +547,8 @@ in the number and thickness of the digits fitted with those predicted by their
 model. By adjusting the levels of Wnt or BMP, they could turn off the
 formation of distinct fingers (so that the digits fused) or alter the number
 from five to three or four.
+![Fig. 8.6 a: Concentration of the Sox9 protein in the limb bud of a mouse. The darker the region, the](media/fig-8.6.png)
+
 Fig. 8.6 a: Concentration of the Sox9 protein in the limb bud of a mouse. The darker the region, the
 higher the concentration. b: The expression patterns of BMP, Sox9, and Wnt in a Turing model of
 digit formation. Image a from Sheth et al. (2012); image b courtesy of Luciano Marcon, Universidad
@@ -794,6 +806,8 @@ somites are well-developed by around the end of week four of development
 for much of the body length. How each elaboration happens is complicated
 and specific to the somite, but typically it involves now-familiar regulatory
 and signaling molecules such as Wnt, Notch, and FGF.
+
+![Fig. 8.7 The human embryo at day 32, showing the division of the body into segments called](media/fig-8.7.png)
 
 Fig. 8.7 The human embryo at day 32, showing the division of the body into segments called
 somites. Image courtesy of Paul Martin/Wellcome Collection.

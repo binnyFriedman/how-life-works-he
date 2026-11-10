@@ -356,6 +356,8 @@ that emerges is a clumsy marriage of the mechanical and the
 anthropomorphic. Life becomes an informational process sprinkled with
 invisible magic.
 
+![Fig. 1.1 The structure of the bacterial flagellar motor, deduced by researchers at Zhejiang University](media/fig-1.1.png)
+
 Fig. 1.1 The structure of the bacterial flagellar motor, deduced by researchers at Zhejiang University
 in China using the technique of cryo-electron microscopy (see p. 151). Image courtesy of Xing
 Zhang and Yongqun Zhu, Zhejiang University; see Tan et al. (2021).
@@ -690,6 +692,8 @@ variety of other membrane-bound compartments, such as the
 mitochondria (where chemical energy is generated and where small
 strands of DNA contain thirty or so of our genes) and the Golgi complex
 (fig. 1.2).
+
+![Fig. 1.2 A human cell is divided into many compartments, called organelles.](media/fig-1.2.png)
 
 Fig. 1.2 A human cell is divided into many compartments, called organelles.
 

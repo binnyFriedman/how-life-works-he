@@ -1,11 +1,13 @@
 #!/usr/bin/env python3
-"""Lean Gemini translation for one markdown chunk → Hebrew.
+"""Lean Gemini translation for one markdown chunk → target language.
 
 Usage:
-  python3 scripts/translate_gemini.py \\
+  python3 scripts/translate_gemini.py --book how-life-works \\
     --chunk work/00-prologue_temp/chunk0002.md \\
-    --out work/00-prologue_temp/output_chunk0002.md \\
-    --glossary translated/glossary.json
+    --out work/00-prologue_temp/output_chunk0002.md
+
+  # Or rely on books/active / BOOK_ID:
+  python3 scripts/translate_gemini.py --chunk ... --out ...
 
 Requires GEMINI_API_KEY or GOOGLE_API_KEY in the environment (or .env).
 """
@@ -22,7 +24,10 @@ import urllib.request
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-DEFAULT_PROMPT = ROOT / "prompts" / "he-translate.md"
+sys.path.insert(0, str(ROOT / "scripts"))
+
+from book_config import add_book_cli_args, load_book  # noqa: E402
+
 DEFAULT_MODEL = os.environ.get("GEMINI_MODEL", "gemini-4-argon")
 
 
@@ -72,13 +77,16 @@ def glossary_table(glossary_path: Path | None, chunk_text: str) -> str:
     return "\n".join(rows)
 
 
-def build_prompt(prompt_path: Path, chunk_text: str, glossary_path: Path | None) -> str:
+def build_prompt(
+    prompt_path: Path,
+    chunk_text: str,
+    glossary_path: Path | None,
+    book,
+) -> str:
     template = prompt_path.read_text(encoding="utf-8")
     table = glossary_table(glossary_path, chunk_text)
-    body = template.replace("{TERM_TABLE}", table)
-    return (
-        f"{body}\n\n---\n\n# Source chunk\n\n{chunk_text.strip()}\n"
-    )
+    body = book.render_prompt_template(template, term_table=table)
+    return f"{body}\n\n---\n\n# Source chunk\n\n{chunk_text.strip()}\n"
 
 
 def translate(model: str, prompt: str, key: str) -> str:
@@ -119,20 +127,41 @@ def translate(model: str, prompt: str, key: str) -> str:
 def main() -> None:
     load_dotenv(ROOT / ".env")
     parser = argparse.ArgumentParser(description="Translate one chunk with Gemini")
+    add_book_cli_args(parser)
     parser.add_argument("--chunk", required=True, type=Path)
     parser.add_argument("--out", required=True, type=Path)
-    parser.add_argument("--glossary", type=Path, default=ROOT / "translated" / "glossary.json")
-    parser.add_argument("--prompt", type=Path, default=DEFAULT_PROMPT)
+    parser.add_argument(
+        "--glossary",
+        type=Path,
+        default=None,
+        help="Override glossary path (default: from book profile)",
+    )
+    parser.add_argument(
+        "--prompt",
+        type=Path,
+        default=None,
+        help="Override prompt template path (default: from book profile)",
+    )
     parser.add_argument("--model", default=DEFAULT_MODEL)
     args = parser.parse_args()
 
+    book = load_book(args.book)
+    glossary = args.glossary or book.paths.glossary
+    prompt_path = args.prompt or book.paths.prompt
+    if not prompt_path.exists():
+        raise SystemExit(f"Prompt template not found: {prompt_path}")
+
     chunk_text = args.chunk.read_text(encoding="utf-8")
-    prompt = build_prompt(args.prompt, chunk_text, args.glossary)
-    print(f"model={args.model} chunk={args.chunk} chars={len(chunk_text)}", file=sys.stderr)
-    hebrew = translate(args.model, prompt, api_key())
+    prompt = build_prompt(prompt_path, chunk_text, glossary, book)
+    print(
+        f"book={book.id} {book.source_lang}->{book.target_lang} "
+        f"model={args.model} chunk={args.chunk} chars={len(chunk_text)}",
+        file=sys.stderr,
+    )
+    translated = translate(args.model, prompt, api_key())
     args.out.parent.mkdir(parents=True, exist_ok=True)
-    args.out.write_text(hebrew, encoding="utf-8")
-    print(f"wrote {args.out} chars={len(hebrew)}", file=sys.stderr)
+    args.out.write_text(translated, encoding="utf-8")
+    print(f"wrote {args.out} chars={len(translated)}", file=sys.stderr)
 
 
 if __name__ == "__main__":

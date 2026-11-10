@@ -1,109 +1,23 @@
 #!/usr/bin/env python3
-"""Build the mobile Hebrew reader site into docs/ for GitHub Pages."""
+"""Build the mobile Hebrew reader site into the book's docs/ directory."""
 
 from __future__ import annotations
 
+import argparse
 import html
 import re
+import shutil
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-TRANSLATED = ROOT / "translated"
-DOCS = ROOT / "docs"
+sys.path.insert(0, str(ROOT / "scripts"))
 
-CHAPTERS = [
-    {
-        "slug": "prologue",
-        "dir": "prologue",
-        "title": "פרולוג",
-        "brand": "פרולוג",
-        "nav_label": "פרולוג",
-    },
-    {
-        "slug": "01-the-end-of-the-machine",
-        "dir": "01-the-end-of-the-machine",
-        "title": "1 קץ המכונה",
-        "brand": "1 · קץ המכונה",
-        "nav_label": "פרק 1",
-    },
-    {
-        "slug": "02-genes",
-        "dir": "02-genes",
-        "title": "2 גנים",
-        "brand": "2 · גנים",
-        "nav_label": "פרק 2",
-    },
-    {
-        "slug": "03-rna-and-transcription",
-        "dir": "03-rna-and-transcription",
-        "title": "3 RNA ושעתוק",
-        "brand": "3 · RNA ושעתוק",
-        "nav_label": "פרק 3",
-    },
-    {
-        "slug": "04-proteins",
-        "dir": "04-proteins",
-        "title": "4 חלבונים",
-        "brand": "4 · חלבונים",
-        "nav_label": "פרק 4",
-    },
-    {
-        "slug": "05-networks",
-        "dir": "05-networks",
-        "title": "5 רשתות",
-        "brand": "5 · רשתות",
-        "nav_label": "פרק 5",
-    },
-    {
-        "slug": "06-cells",
-        "dir": "06-cells",
-        "title": "6 תאים",
-        "brand": "6 · תאים",
-        "nav_label": "פרק 6",
-    },
-    {
-        "slug": "07-tissues",
-        "dir": "07-tissues",
-        "title": "7 רקמות",
-        "brand": "7 · רקמות",
-        "nav_label": "פרק 7",
-    },
-    {
-        "slug": "08-bodies",
-        "dir": "08-bodies",
-        "title": "8 גופים",
-        "brand": "8 · גופים",
-        "nav_label": "פרק 8",
-    },
-    {
-        "slug": "09-agency",
-        "dir": "09-agency",
-        "title": "9 סוכנות",
-        "brand": "9 · סוכנות",
-        "nav_label": "פרק 9",
-    },
-    {
-        "slug": "10-troubleshooting",
-        "dir": "10-troubleshooting",
-        "title": "10 איתור ותיקון תקלות",
-        "brand": "10 · איתור ותיקון תקלות",
-        "nav_label": "פרק 10",
-    },
-    {
-        "slug": "11-making-and-hacking",
-        "dir": "11-making-and-hacking",
-        "title": "11 יצירה ופריצה",
-        "brand": "11 · יצירה ופריצה",
-        "nav_label": "פרק 11",
-    },
-    {
-        "slug": "12-epilogue",
-        "dir": "12-epilogue",
-        "title": "אפילוג",
-        "brand": "אפילוג",
-        "nav_label": "אפילוג",
-    },
-]
+from book_config import add_book_cli_args, load_book  # noqa: E402
+
+# Shared reader assets live next to the legacy HLW docs/ output and are copied
+# into each book's docs/ on build.
+SHARED_ASSETS = ROOT / "docs"
 
 
 def esc(text: str) -> str:
@@ -118,11 +32,23 @@ def is_figure_caption(text: str) -> bool:
     return bool(re.match(r"^איור\s+\d", text))
 
 
+MD_IMAGE_RE = re.compile(r"^!\[([^\]]*)\]\(([^)]+)\)\s*$")
+
+
+def figure_image_html(alt: str, src: str) -> str:
+    safe_alt = esc(alt)
+    safe_src = esc(src)
+    return (
+        f'<figure class="figure">'
+        f'<img src="{safe_src}" alt="{safe_alt}" loading="lazy" decoding="async"/>'
+        f"</figure>"
+    )
+
+
 def drop_cap_paragraph(text: str) -> str:
     """Wrap first grapheme-ish character in a drop-cap span."""
     if not text:
         return ""
-    # Prefer the first Hebrew/Latin letter, skipping punctuation wrappers.
     m = re.search(r"[\u0590-\u05FFa-zA-Z]", text)
     if not m:
         return esc(text)
@@ -133,7 +59,7 @@ def drop_cap_paragraph(text: str) -> str:
     return f'{before}<span class="drop">{esc(first)}</span>{after}'
 
 
-def md_to_article_body(md: str, chapter_title: str) -> str:
+def md_to_article_body(md: str, chapter_title: str, kicker: str) -> str:
     lines = md.replace("\r\n", "\n").replace("\r", "\n").split("\n")
     blocks: list[str] = []
     para: list[str] = []
@@ -149,10 +75,8 @@ def md_to_article_body(md: str, chapter_title: str) -> str:
         para.clear()
         if not text:
             return
-        # Skip repeated chapter title / subtitle lines after H1.
         if text == title_norm or text.replace(" ", "") == title_norm.replace(" ", ""):
             return
-        # Short all-caps-ish chapter subtitle echoes (single short Hebrew line)
         if (
             not saw_lead
             and len(text) <= 40
@@ -189,19 +113,20 @@ def md_to_article_body(md: str, chapter_title: str) -> str:
             flush_para()
             blocks.append(f"<h3>{esc(normalize_ws(stripped[4:]))}</h3>")
             continue
+        img = MD_IMAGE_RE.match(stripped)
+        if img:
+            flush_para()
+            blocks.append(figure_image_html(img.group(1), img.group(2)))
+            continue
         if stripped.startswith(("- ", "* ")):
             flush_para()
-            # Collect a simple list
             items = [normalize_ws(stripped[2:])]
-            # lookahead handled by continuing; for simplicity treat as single item lists
-            # and merge consecutive bullets in a second pass via blocks marker.
             blocks.append(f"__LI__{esc(items[0])}")
             continue
         para.append(stripped)
 
     flush_para()
 
-    # Merge consecutive __LI__ into <ul>
     merged: list[str] = []
     list_buf: list[str] = []
 
@@ -221,58 +146,62 @@ def md_to_article_body(md: str, chapter_title: str) -> str:
     flush_list()
 
     heading = title_from_md or chapter_title
-    head = f'<p class="kicker">How Life Works · תרגום עברי · Gemini</p>\n'
+    head = f'<p class="kicker">{esc(kicker)}</p>\n'
     head += f'<h1 class="chapter">{esc(heading)}</h1>\n'
     return head + "\n".join(merged)
 
 
-def drawer_html(current_slug: str | None) -> str:
+def drawer_html(chapters: list[dict], current_slug: str | None) -> str:
     items = []
-    for ch in CHAPTERS:
+    for ch in chapters:
         href = f"{ch['slug']}.html"
         current = ' aria-current="page"' if ch["slug"] == current_slug else ""
         items.append(f'<li><a href="{href}"{current}>{esc(ch["title"])}</a></li>')
     return "\n".join(items)
 
 
-def chapter_nav(index: int) -> str:
+def chapter_nav(chapters: list[dict], index: int) -> str:
     prev_link = '<span class="disabled">הקודם</span>'
     next_link = '<span class="disabled">הבא</span>'
     if index > 0:
-        prev = CHAPTERS[index - 1]
-        prev_link = f'<a href="{prev["slug"]}.html">← {esc(prev["nav_label"])}</a>'
-    if index < len(CHAPTERS) - 1:
-        nxt = CHAPTERS[index + 1]
-        next_link = f'<a href="{nxt["slug"]}.html">{esc(nxt["nav_label"])} →</a>'
+        prev = chapters[index - 1]
+        # RTL: previous sits on the right and points right; next on the left points left.
+        prev_link = f'<a href="{prev["slug"]}.html">{esc(prev["nav_label"])} →</a>'
+    if index < len(chapters) - 1:
+        nxt = chapters[index + 1]
+        next_link = f'<a href="{nxt["slug"]}.html">← {esc(nxt["nav_label"])}</a>'
     return f'<nav class="chapter-nav" aria-label="ניווט בין פרקים">{prev_link}{next_link}</nav>'
 
 
 def page_shell(
     *,
+    book_title: str,
+    storage_prefix: str,
     title: str,
     brand: str,
     slug: str | None,
+    chapters: list[dict],
     body_inner: str,
     extra_class: str = "",
 ) -> str:
     chapter_attr = f' data-chapter="{esc(slug)}"' if slug else ""
-    dir_attr = ' dir="rtl"'
     home_link = (
         '<a class="home-link" href="index.html">כל הפרקים</a>'
         if slug
         else ""
     )
+    prefix_js = esc(storage_prefix)
     return f"""<!DOCTYPE html>
-<html lang="he"{dir_attr}{chapter_attr}>
+<html lang="he" dir="rtl" data-storage-prefix="{esc(storage_prefix)}"{chapter_attr}>
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
-<title>{esc(title)} — How Life Works</title>
+<title>{esc(title)} — {esc(book_title)}</title>
 <link rel="preconnect" href="https://fonts.googleapis.com"/>
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Sora:wght@400;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="reader.css"/>
-<script>(function(){{try{{var t=localStorage.getItem("hlw-reader-theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t);var f=localStorage.getItem("hlw-reader-font-scale");var l=localStorage.getItem("hlw-reader-line-scale");if(f)document.documentElement.style.setProperty("--font-scale",f);if(l)document.documentElement.style.setProperty("--line-scale",l);}}catch(e){{document.documentElement.setAttribute("data-theme","light")}}}})();</script>
+<script>(function(){{try{{var p="{prefix_js}";var t=localStorage.getItem(p+"-theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t);var f=localStorage.getItem(p+"-font-scale");var l=localStorage.getItem(p+"-line-scale");if(f)document.documentElement.style.setProperty("--font-scale",f);if(l)document.documentElement.style.setProperty("--line-scale",l);}}catch(e){{document.documentElement.setAttribute("data-theme","light")}}}})();</script>
 <script defer src="reader.js"></script>
 </head>
 <body>
@@ -293,7 +222,7 @@ def page_shell(
 <button type="button" class="nav-btn drawer-close" id="drawer-close" title="סגור">✕</button>
 <h2>תוכן העניינים</h2>
 <ol>
-{drawer_html(slug)}
+{drawer_html(chapters, slug)}
 </ol>
 </aside>
 <div class="stage{(' ' + extra_class) if extra_class else ''}">
@@ -306,56 +235,102 @@ def page_shell(
 """
 
 
-def build_index() -> str:
-    items = "\n".join(
-        f'<li><a href="{ch["slug"]}.html">{esc(ch["title"])}</a></li>'
-        for ch in CHAPTERS
-    )
-    body = f"""<p class="kicker">How Life Works · תרגום עברי</p>
-<h1 class="chapter">איך החיים עובדים</h1>
-<p class="prose lead">פיליפ בול — תרגום עברי (טיוטה). בחרו פרק להתחיל לקרוא.</p>
-<ol class="toc">
-{items}
-</ol>
-<p class="home-meta">{len(CHAPTERS)} פרקים · Gemini · RTL</p>
-"""
-    return page_shell(
-        title="איך החיים עובדים",
-        brand="איך החיים עובדים",
-        slug=None,
-        body_inner=body,
-        extra_class="home-stage",
-    )
+def ensure_assets(docs: Path) -> None:
+    docs.mkdir(parents=True, exist_ok=True)
+    for name in ("reader.css", "reader.js"):
+        src = SHARED_ASSETS / name
+        dst = docs / name
+        if not src.exists():
+            raise SystemExit(f"Missing shared asset: {src}")
+        if docs.resolve() != SHARED_ASSETS.resolve() or not dst.exists():
+            shutil.copy2(src, dst)
+
+
+def sync_media(book_root: Path, docs: Path) -> None:
+    """Copy extracted figures from source/media into the reader docs/media."""
+    src = book_root / "source" / "media"
+    if not src.is_dir():
+        return
+    dst = docs / "media"
+    dst.mkdir(parents=True, exist_ok=True)
+    for path in sorted(src.iterdir()):
+        if path.suffix.lower() in {".png", ".jpg", ".jpeg", ".webp", ".gif"}:
+            shutil.copy2(path, dst / path.name)
 
 
 def main() -> None:
-    DOCS.mkdir(parents=True, exist_ok=True)
-    # Ensure assets exist (written separately; rebuild must not delete them)
-    for name in ("reader.css", "reader.js"):
-        if not (DOCS / name).exists():
-            raise SystemExit(f"Missing {DOCS / name}")
+    parser = argparse.ArgumentParser(description="Build reader site for a book")
+    add_book_cli_args(parser)
+    args = parser.parse_args()
+    book = load_book(args.book)
 
-    (DOCS / "index.html").write_text(build_index(), encoding="utf-8")
-    print("wrote docs/index.html")
+    chapters = book.reader_chapters
+    if not chapters:
+        raise SystemExit(
+            f"No reader.chapters defined in books/{book.id}/book.json"
+        )
 
-    for i, ch in enumerate(CHAPTERS):
-        src = TRANSLATED / ch["dir"] / "FULL.md"
+    docs = book.paths.docs
+    translated = book.paths.translated
+    ensure_assets(docs)
+    sync_media(book.paths.root, docs)
+
+    def shell(**kwargs):
+        return page_shell(
+            book_title=book.title,
+            storage_prefix=book.storage_key_prefix,
+            chapters=chapters,
+            **kwargs,
+        )
+
+    items = "\n".join(
+        f'<li><a href="{ch["slug"]}.html">{esc(ch["title"])}</a></li>'
+        for ch in chapters
+    )
+    home_meta = book.reader["home_meta"].replace("{n}", str(len(chapters)))
+
+    body = f"""<p class="kicker">{esc(book.reader['kicker'])}</p>
+<h1 class="chapter">{esc(book.reader['home_title'])}</h1>
+<p class="prose lead">{esc(book.reader['home_lead'])}</p>
+<ol class="toc">
+{items}
+</ol>
+<p class="home-meta">{esc(home_meta)}</p>
+"""
+    (docs / "index.html").write_text(
+        shell(
+            title=book.reader["home_title"],
+            brand=book.reader["home_brand"],
+            slug=None,
+            body_inner=body,
+            extra_class="home-stage",
+        ),
+        encoding="utf-8",
+    )
+    print(f"wrote {docs / 'index.html'}")
+
+    for i, ch in enumerate(chapters):
+        src = translated / ch["dir"] / "FULL.md"
         if not src.exists():
             raise SystemExit(f"Missing source: {src}")
         md = src.read_text(encoding="utf-8")
-        article = md_to_article_body(md, ch["title"])
-        article += "\n" + chapter_nav(i)
-        page = page_shell(
+        article = md_to_article_body(md, ch["title"], book.reader["kicker_chapter"])
+        article += "\n" + chapter_nav(chapters, i)
+        page = shell(
             title=ch["title"],
             brand=ch["brand"],
             slug=ch["slug"],
             body_inner=article,
         )
-        out = DOCS / f"{ch['slug']}.html"
+        out = docs / f"{ch['slug']}.html"
         out.write_text(page, encoding="utf-8")
-        print(f"wrote {out.relative_to(ROOT)}")
+        try:
+            rel = out.relative_to(ROOT)
+        except ValueError:
+            rel = out
+        print(f"wrote {rel}")
 
-    print(f"done: {len(CHAPTERS)} chapters + index")
+    print(f"done: book={book.id} {len(chapters)} chapters + index")
 
 
 if __name__ == "__main__":

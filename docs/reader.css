@@ -270,9 +270,23 @@ h3 {
   color: var(--accent);
 }
 
+.figure {
+  max-width: var(--measure);
+  margin: 1.75rem 0 0.35rem;
+  padding: 0;
+}
+
+.figure img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  background: rgba(0, 0, 0, 0.04);
+}
+
 .caption {
   max-width: var(--measure);
-  margin: 1.5rem 0;
+  margin: 0.35rem 0 1.5rem;
   padding: 1rem 1.1rem;
   font-family: "Sora", system-ui, sans-serif;
   font-size: 0.9rem;

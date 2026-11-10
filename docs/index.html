@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="he" dir="rtl" data-storage-prefix="hlw-reader">
 <head>
 <meta charset="utf-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover"/>
@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
 <link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:wght@400;500;700&family=Sora:wght@400;600&display=swap" rel="stylesheet"/>
 <link rel="stylesheet" href="reader.css"/>
-<script>(function(){try{var t=localStorage.getItem("hlw-reader-theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t);var f=localStorage.getItem("hlw-reader-font-scale");var l=localStorage.getItem("hlw-reader-line-scale");if(f)document.documentElement.style.setProperty("--font-scale",f);if(l)document.documentElement.style.setProperty("--line-scale",l);}catch(e){document.documentElement.setAttribute("data-theme","light")}})();</script>
+<script>(function(){try{var p="hlw-reader";var t=localStorage.getItem(p+"-theme");if(t!=="light"&&t!=="dark")t=matchMedia("(prefers-color-scheme: dark)").matches?"dark":"light";document.documentElement.setAttribute("data-theme",t);var f=localStorage.getItem(p+"-font-scale");var l=localStorage.getItem(p+"-line-scale");if(f)document.documentElement.style.setProperty("--font-scale",f);if(l)document.documentElement.style.setProperty("--line-scale",l);}catch(e){document.documentElement.setAttribute("data-theme","light")}})();</script>
 <script defer src="reader.js"></script>
 </head>
 <body>

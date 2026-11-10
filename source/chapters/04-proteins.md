@@ -80,6 +80,8 @@ from information encoded in the corresponding messenger RNA, according
 to the genetic code that links triplets of RNA bases to specific amino acids
 (p. 68). This information in mRNA is read out by the ribosome, the
 molecular assembly that makes proteins.
+![Fig. 4.1 Proteins are made from chains of amino acids called polypeptides (top). For enzyme](media/fig-4.1.png)
+
 Fig. 4.1 Proteins are made from chains of amino acids called polypeptides (top). For enzyme
 proteins, these chains fold into specific shapes, examples of which are shown here (bottom, left to
 right: serum albumin, bacteriorhodopsin, hemoglobin, lactate dehydrogenase). Images courtesy of
@@ -95,6 +97,8 @@ double helix. Some residues contain the “donor” half of such a bond: a
 hydrogen atom with a slight positive charge. These hydrogens can stick to
 entities (oxygen or nitrogen atoms) in the “acceptor” half. Think of these as
 the complementary hooks and loops of a kind of molecular Velcro.
+![Fig. 4.2 Folding of a polypeptide chain into a compact, active protein.](media/fig-4.2.png)
+
 Fig. 4.2 Folding of a polypeptide chain into a compact, active protein.
 
    Besides hydrogen bonding, the other main driving force behind protein
@@ -159,6 +163,8 @@ so-called global minimum: the most stable target fold. But the protein
 would seem to have to find its way there by wandering randomly through
 the landscape.
 
+![Fig. 4.3 The most common folding motifs in proteins are the alpha helix (left) and the beta sheet](media/fig-4.3.png)
+
 Fig. 4.3 The most common folding motifs in proteins are the alpha helix (left) and the beta sheet
 (right). Image courtesy of Creative Proteomics, Shirley, NY.
 
@@ -200,6 +206,8 @@ about the forces between all the molecular components, and then run a
 simulation to see how the chain folds. Such methods required a huge
 amount of computer power, and even then the results weren’t generally very
 reliable.
+![Fig. 4.4 The protein folding energy landscape. a: If the landscape were rugged, with many valleys](media/fig-4.4.png)
+
 Fig. 4.4 The protein folding energy landscape. a: If the landscape were rugged, with many valleys
 and peaks of similar height, it would take a very long time for an unfolded chain to find the deepest
 valley by wandering at random. b: This search problem becomes solvable because the landscape is
@@ -381,6 +389,8 @@ linked into short chains. Such sugar-decorated proteins are called
 glycoproteins, and they are particularly important components of the
 immune system, such as antibodies and the molecular determinants of blood
 groups.
+![Fig. 4.5 ATP synthase is a membrane protein that catalyzes the formation of the “energy molecule”](media/fig-4.5.png)
+
 Fig. 4.5 ATP synthase is a membrane protein that catalyzes the formation of the “energy molecule”
 ATP. The “stalk” sits embedded in in the cell membrane, while the protruding “head” does the
 catalysis.
@@ -393,6 +403,8 @@ even aim to interpret biology by what those constituents do, or when, or in
 what order, but merely by their static form! It brings to mind Robert
 Rosen’s aforementioned remark about “throw[ing] away the organization
 and keep[ing] the underlying matter.”
+
+![Fig. 4.6 A representation of the network formed by the fibrous structural protein collagen, which is a](media/fig-4.6.png)
 
 Fig. 4.6 A representation of the network formed by the fibrous structural protein collagen, which is a
 principal component of connective tissues such as cartilage, tendons, and skin. Image courtesy of
@@ -413,6 +425,8 @@ interact with the substrate like a lock into which only the right key fits. This
 is known as molecular recognition, and it is thought to allow the flows of
 matter, energy, and information in the cell to be orchestrated along well-
 defined chains of molecular interaction.
+
+![Fig. 4.7 The hemoglobin protein has a so-called heme group in its core, containing an iron atom that](media/fig-4.7.png)
 
 Fig. 4.7 The hemoglobin protein has a so-called heme group in its core, containing an iron atom that
 can bind oxygen molecules. The full hemoglobin assembly contains four distinct proteins, as two
@@ -459,6 +473,8 @@ physiological response inside—as well as in smell (where the trigger is an
 odorant molecule), light sensitivity (where the trigger is a photon of light),
 and the action of neurotransmitter molecules at neural synapses.
 
+![Fig. 4.8 The common view of how allostery works in proteins. The binding of ligand B causes a](media/fig-4.8.png)
+
 Fig. 4.8 The common view of how allostery works in proteins. The binding of ligand B causes a
 shape change in the protein that switches it to the active form capable of transforming A to P.
 
@@ -489,6 +505,8 @@ phosphatases whose job is to chop a phosphate group back off another
 protein. In this way, protein kinases and phosphatases can regulate the
 activity of other enzymes in a cyclic fashion (fig. 4.10).
 
+![Fig. 4.9 Allostery in the action of a G-protein-coupled receptor, which generally initiates a cascade of](media/fig-4.9.png)
+
 Fig. 4.9 Allostery in the action of a G-protein-coupled receptor, which generally initiates a cascade of
 interactions involving enzymes called protein kinases. GDP and GTP are small molecules that are
 interconverted by enzymes in these signaling processes.
@@ -506,6 +524,8 @@ wobbling like crazy because of its own heat energy and the random impacts
 with molecules of its watery solvent and with its neighbors. As biologist
 Dennis Bray says, “any individual molecule is intrinsically capricious and
 unreliable, dominated by thermal energy.”
+
+![Fig. 4.10 Phosphorylation of a protein by a kinase, and dephosphorylation by a phosphatase enzyme.](media/fig-4.10.png)
 
 Fig. 4.10 Phosphorylation of a protein by a kinase, and dephosphorylation by a phosphatase enzyme.
 Here “P” is a phosphate group.
@@ -581,6 +601,8 @@ investigate the structure of the protein bound to a substrate, it looks as
 ordered as any other. Yet that folded form will differ for different binding
 partners. Other disordered proteins remain resolutely unstructured even
 when they bind, latching on amoeba-like to form sprawling, fuzzy unions.
+![Fig. 4.11 Intrinsic disorder in proteins. Some proteins are almost wholly disordered and have no](media/fig-4.11.png)
+
 Fig. 4.11 Intrinsic disorder in proteins. Some proteins are almost wholly disordered and have no
 single, stable structure (left). Some have significant regions of their folded chain that are disordered
 (middle), combined with pockets of order such as alpha helices. In comparison, an ordered protein
@@ -749,6 +771,8 @@ the protein troponin T, a key component of the contractile filaments of
 muscles, has more than eighty alternatively spliced forms, and in rare cases
 the alternatives can run into the hundreds (not all of which might be
 functional).
+![Fig. 4.12 a: The spliceosome at work, cutting and pasting exons and introns in primary RNA](media/fig-4.12.png)
+
 Fig. 4.12 a: The spliceosome at work, cutting and pasting exons and introns in primary RNA
 transcripts. “Small nuclear ribonucleoproteins,” snRNPs, are formed from small noncoding RNA
 molecules and RNA-binding proteins that stick to them. b: The shape of the molecular complex
@@ -926,6 +950,8 @@ general the chain segments that link domains together are disordered,
 because it really doesn’t much matter what their structure is so long as it
 doesn’t fold into some rigid form that will constrain how the domains may
 pack and interact.
+![Fig. 4.13 The beta barrel—a common structural motif in modular proteins. Image courtesy of GFDL.](media/fig-4.13.png)
+
 Fig. 4.13 The beta barrel—a common structural motif in modular proteins. Image courtesy of GFDL.
 
    In this view, the evolution of metazoan proteins is not so much a slow
@@ -1053,6 +1079,8 @@ switched on and off by changing its state of phosphorylation. In addition to
 providing switches for turning some signal or property on or off, SPs can
 also tweak intensity up or down, the dial being turned by the binding of
 other targets (see box 4.1).
+![Fig. 4.14 The common textbook view of a scaffold protein shows it as having binding sites shaped](media/fig-4.14.png)
+
 Fig. 4.14 The common textbook view of a scaffold protein shows it as having binding sites shaped
 for particular targets, allowing it to be a sort of circuit board on which signals can travel between the
 bound molecules (often kinases). But scaffold proteins are rarely so sculpted and selective in their

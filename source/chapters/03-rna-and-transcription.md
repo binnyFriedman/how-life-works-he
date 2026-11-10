@@ -87,6 +87,8 @@ four bases as DNA: instead of thymine (T), it uses a very similar base called
 uracil (U). This means that, say, the DNA se-quence CTGACGAT will
 template the complementary RNA se-quence GACUGCUA. It’s the same
 message but in a slightly different language.
+![Fig. 3.1 How RNA polymerase makes mRNA from DNA.](media/fig-3.1.png)
+
 Fig. 3.1 How RNA polymerase makes mRNA from DNA.
 
     Once an entire gene has been transcribed into an mRNA molecule, the
@@ -267,6 +269,8 @@ reactivated, and their enzymes are produced. The genetic unit for switching
 between these alternative metabolisms became known as the lac operon,
 and it showed how one gene (here the lac1 gene that encodes the repressor
 protein) may regulate the activity of another.
+![Fig. 3.2 The lac operon.](media/fig-3.2.png)
+
 Fig. 3.2 The lac operon.
 
 RNA for RNA’s Sake
@@ -710,6 +714,8 @@ of CpG groups. When they are methylated, the DNA becomes more
 receptive to the binding of a protein called (uninventively, but descriptively)
 methyl CpG binding protein 2, which in turn allows other regulatory
 proteins to dock. (The protein itself represses transcription.)
+
+![Fig. 3.3 Methylation of a CpG island in DNA: an epigenetic change that may regulate genes.](media/fig-3.3.png)
 
 Fig. 3.3 Methylation of a CpG island in DNA: an epigenetic change that may regulate genes.
 

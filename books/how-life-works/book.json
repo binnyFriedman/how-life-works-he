@@ -1,0 +1,168 @@
+{
+  "id": "how-life-works",
+  "title": "How Life Works",
+  "title_target": "איך החיים עובדים",
+  "author": "Philip Ball",
+  "author_target": "פיליפ בול",
+  "source_lang": "en",
+  "target_lang": "he",
+  "layout": "legacy-root",
+  "register": "literary popular-science Hebrew",
+  "description": "Philip Ball, *How Life Works* — a serious popular-science book",
+  "storage_key_prefix": "hlw-reader",
+  "paths": {
+    "source_pdf": "How Life Works_ A User’s Guide to the New Biology - how-life-works.pdf",
+    "source_chapters": "source/chapters",
+    "work": "work",
+    "translated": "translated",
+    "glossary": "translated/glossary.json",
+    "prompt": "prompts/translate.md",
+    "docs": "docs",
+    "queue": "work/queue.json"
+  },
+  "defaults": {
+    "chunk_size": 12000,
+    "concurrency": 1,
+    "test_chapter": "00-prologue"
+  },
+  "include_sections": [
+    "Prologue",
+    "Chapters 1–11",
+    "Epilogue"
+  ],
+  "skip_sections": [
+    "copyright/front matter",
+    "Contents",
+    "Acknowledgments",
+    "Source Notes",
+    "Bibliography",
+    "Index",
+    "Footnotes dump",
+    "OceanofPDF.com watermarks",
+    "running headers/page numbers"
+  ],
+  "extract_drop_patterns": [
+    "OceanofPDF.com"
+  ],
+  "extra_prompt_rules": [
+    "Keep DNA base letters a, t, c, g as-is. Prefer Latin DNA / RNA unless glossary says otherwise.",
+    "Keep figure markers as איור N.N.",
+    "Keep footnote markers (e.g. trailing 1) in place."
+  ],
+  "extract_chapters": [
+    {"slug": "00-prologue", "title": "Prologue", "start_page": 9, "end_page": 25},
+    {"slug": "01-the-end-of-the-machine", "title": "1 The End of the Machine", "start_page": 25, "end_page": 47},
+    {"slug": "02-genes", "title": "2 Genes", "start_page": 47, "end_page": 104},
+    {"slug": "03-rna-and-transcription", "title": "3 RNA and Transcription", "start_page": 104, "end_page": 134},
+    {"slug": "04-proteins", "title": "4 Proteins", "start_page": 134, "end_page": 184},
+    {"slug": "05-networks", "title": "5 Networks", "start_page": 184, "end_page": 228},
+    {"slug": "06-cells", "title": "6 Cells", "start_page": 228, "end_page": 267},
+    {"slug": "07-tissues", "title": "7 Tissues", "start_page": 267, "end_page": 297},
+    {"slug": "08-bodies", "title": "8 Bodies", "start_page": 297, "end_page": 338},
+    {"slug": "09-agency", "title": "9 Agency", "start_page": 338, "end_page": 377},
+    {"slug": "10-troubleshooting", "title": "10 Troubleshooting", "start_page": 377, "end_page": 407},
+    {"slug": "11-making-and-hacking", "title": "11 Making and Hacking", "start_page": 407, "end_page": 436},
+    {"slug": "12-epilogue", "title": "Epilogue", "start_page": 436, "end_page": 453}
+  ],
+  "reader": {
+    "kicker": "How Life Works · תרגום עברי",
+    "kicker_chapter": "How Life Works · תרגום עברי · Gemini",
+    "home_title": "איך החיים עובדים",
+    "home_brand": "איך החיים עובדים",
+    "home_lead": "פיליפ בול — תרגום עברי (טיוטה). בחרו פרק להתחיל לקרוא.",
+    "home_meta": "{n} פרקים · Gemini · RTL",
+    "chapters": [
+      {
+        "slug": "prologue",
+        "dir": "prologue",
+        "title": "פרולוג",
+        "brand": "פרולוג",
+        "nav_label": "פרולוג"
+      },
+      {
+        "slug": "01-the-end-of-the-machine",
+        "dir": "01-the-end-of-the-machine",
+        "title": "1 קץ המכונה",
+        "brand": "1 · קץ המכונה",
+        "nav_label": "פרק 1"
+      },
+      {
+        "slug": "02-genes",
+        "dir": "02-genes",
+        "title": "2 גנים",
+        "brand": "2 · גנים",
+        "nav_label": "פרק 2"
+      },
+      {
+        "slug": "03-rna-and-transcription",
+        "dir": "03-rna-and-transcription",
+        "title": "3 RNA ושעתוק",
+        "brand": "3 · RNA ושעתוק",
+        "nav_label": "פרק 3"
+      },
+      {
+        "slug": "04-proteins",
+        "dir": "04-proteins",
+        "title": "4 חלבונים",
+        "brand": "4 · חלבונים",
+        "nav_label": "פרק 4"
+      },
+      {
+        "slug": "05-networks",
+        "dir": "05-networks",
+        "title": "5 רשתות",
+        "brand": "5 · רשתות",
+        "nav_label": "פרק 5"
+      },
+      {
+        "slug": "06-cells",
+        "dir": "06-cells",
+        "title": "6 תאים",
+        "brand": "6 · תאים",
+        "nav_label": "פרק 6"
+      },
+      {
+        "slug": "07-tissues",
+        "dir": "07-tissues",
+        "title": "7 רקמות",
+        "brand": "7 · רקמות",
+        "nav_label": "פרק 7"
+      },
+      {
+        "slug": "08-bodies",
+        "dir": "08-bodies",
+        "title": "8 גופים",
+        "brand": "8 · גופים",
+        "nav_label": "פרק 8"
+      },
+      {
+        "slug": "09-agency",
+        "dir": "09-agency",
+        "title": "9 סוכנות",
+        "brand": "9 · סוכנות",
+        "nav_label": "פרק 9"
+      },
+      {
+        "slug": "10-troubleshooting",
+        "dir": "10-troubleshooting",
+        "title": "10 איתור ותיקון תקלות",
+        "brand": "10 · איתור ותיקון תקלות",
+        "nav_label": "פרק 10"
+      },
+      {
+        "slug": "11-making-and-hacking",
+        "dir": "11-making-and-hacking",
+        "title": "11 יצירה ופריצה",
+        "brand": "11 · יצירה ופריצה",
+        "nav_label": "פרק 11"
+      },
+      {
+        "slug": "12-epilogue",
+        "dir": "12-epilogue",
+        "title": "אפילוג",
+        "brand": "אפילוג",
+        "nav_label": "אפילוג"
+      }
+    ]
+  }
+}

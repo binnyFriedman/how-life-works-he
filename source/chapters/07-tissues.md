@@ -119,6 +119,8 @@ induce the regular contractions of the heartbeat. If these electrical waves are
 disrupted, for example by damage to the tissue, the beating can degenerate
 into disorderly, incoherent fluttering electrical pulses—and the result may
 be heart failure.
+![Fig. 7.1 Gap junctions between cells are created by the alignment of protein channels called](media/fig-7.1.png)
+
 Fig. 7.1 Gap junctions between cells are created by the alignment of protein channels called
 connexons in the membranes of two adjacent cells. Each connexon is made from six proteins called
 connexin, which undergo conformational changes to open and close the channels.
@@ -299,6 +301,8 @@ as it was legal, however—for it was not, until relatively recently, possible t
 keep human embryos alive and developing normally for up to fourteen
 days.
 
+![Fig. 7.2 a: The epiblast embryo, with an amniotic cavity and yolk sac. b: The gastrulating embryo](media/fig-7.2.png)
+
 Fig. 7.2 a: The epiblast embryo, with an amniotic cavity and yolk sac. b: The gastrulating embryo
 with a primitive streak.
 
@@ -333,6 +337,8 @@ here involve the ubiquitous developmental genes Wnt and Nodal, aided and
 abetted by various others. The key point here is that the disk-shaped layer
 of cells in the epiblast acquires polarity—if you like, a head and tail, or
 what biologists more delicately call an anterior and posterior.
+![Fig. 7.3 a: Formation of the primitive streak. b: Differentiation of the epiblast into mesoderm and](media/fig-7.3.png)
+
 Fig. 7.3 a: Formation of the primitive streak. b: Differentiation of the epiblast into mesoderm and
 endoderm by cell migration.
 
@@ -385,6 +391,8 @@ there’s no meaningful sense in which the growing organism “knows” what
 it is going to become, any more than a zygote knows whether or not it will
 become twins. That depends on what happens next.
 
+![Fig. 7.4 Formation of the notochord.](media/fig-7.4.png)
+
 Fig. 7.4 Formation of the notochord.
 
    What does happen next is that the bilateral symmetry axis becomes more
@@ -434,6 +442,8 @@ in neural-tube formation won’t always work out for the best. Is this an
 the sake of the fetus—but it is fully consistent with the “rules” governing
 this stage of embryo growth, as indeed its widespread prevalence indicates.
 
+![Fig. 7.5 Formation of the neural tube.](media/fig-7.5.png)
+
 Fig. 7.5 Formation of the neural tube.
 
    There is another, extremely rare complication that can arise during the
@@ -474,6 +484,8 @@ becomes the stomach and upper intestines, while that on the posterior end
 becomes the hind-gut. Again, these shapes and structures emerge not
 according to a plan but as a natural consequence of the origami-like
 extension and deformation of the tissues.
+![Fig. 7.6 Formation of the gut.](media/fig-7.6.png)
+
 Fig. 7.6 Formation of the gut.
 
    Meanwhile, the neural tube starts to become a nervous system. The
@@ -622,6 +634,8 @@ the fold retain their stem-like nature and keep proliferating, making the fold
 narrow into a protrusion called a villus: one of the finger-like structures that
 greatly increase the gut’s surface area so that it can absorb nutrients
 efficiently.
+![Fig. 7.7 Formation of a villus in the gut lining due to SHH signaling.](media/fig-7.7.png)
+
 Fig. 7.7 Formation of a villus in the gut lining due to SHH signaling.
 
    More generally, a switch from solid-like properties of densely packed
@@ -704,6 +718,8 @@ likely to end up with the same general structure, or nothing at all. But if the
 system is significantly perturbed, it crosses a ridge in the morphological
 landscape and enters an entirely different valley. In this view, the genes
 themselves supply the materials but not the plan.
+
+![Fig. 7.8 Regeneration of a zebrafish tail. When the original tail (far left) is neatly truncated (second](media/fig-7.8.png)
 
 Fig. 7.8 Regeneration of a zebrafish tail. When the original tail (far left) is neatly truncated (second
 from left), it grows back within a few weeks to reproduce the complex shape, structure, and

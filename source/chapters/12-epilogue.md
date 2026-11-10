@@ -30,6 +30,8 @@ medical, and scientific trends of the past several decades. A change in the
 usage frequency of the word gene doesn’t have much innate meaning, but
 serves only as a hint of something more interesting happening at a higher
 level within culture.
+![Fig. 12.1 The Google Ngram plot for use of the words gene and genetic, 1900–2022.](media/fig-12.1.png)
+
 Fig. 12.1 The Google Ngram plot for use of the words gene and genetic, 1900–2022.
 
     Most of that last paragraph can be translated, mutatis mutandis, into a

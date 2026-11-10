@@ -1,42 +1,32 @@
 #!/usr/bin/env python3
-"""Extract body chapters from the How Life Works PDF into source/chapters/."""
+"""Extract body chapters from a book's PDF into source/chapters/.
+
+Chapter page ranges come from books/<id>/book.json → extract_chapters.
+"""
 
 from __future__ import annotations
 
+import argparse
 import re
 import subprocess
+import sys
 from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
-PDF = ROOT / "How Life Works_ A User’s Guide to the New Biology - how-life-works.pdf"
+sys.path.insert(0, str(ROOT / "scripts"))
 
-# Inclusive start page → exclusive end page (pdfinfo 1-based)
-CHAPTERS = [
-    ("00-prologue", "Prologue", 9, 25),
-    ("01-the-end-of-the-machine", "1 The End of the Machine", 25, 47),
-    ("02-genes", "2 Genes", 47, 104),
-    ("03-rna-and-transcription", "3 RNA and Transcription", 104, 134),
-    ("04-proteins", "4 Proteins", 134, 184),
-    ("05-networks", "5 Networks", 184, 228),
-    ("06-cells", "6 Cells", 228, 267),
-    ("07-tissues", "7 Tissues", 267, 297),
-    ("08-bodies", "8 Bodies", 297, 338),
-    ("09-agency", "9 Agency", 338, 377),
-    ("10-troubleshooting", "10 Troubleshooting", 377, 407),
-    ("11-making-and-hacking", "11 Making and Hacking", 407, 436),
-    ("12-epilogue", "Epilogue", 436, 453),
-]
+from book_config import add_book_cli_args, load_book  # noqa: E402
 
 
-def extract_range(start: int, end: int) -> str:
+def extract_range(pdf: Path, start: int, end: int) -> str:
     return subprocess.check_output(
-        ["pdftotext", "-f", str(start), "-l", str(end - 1), "-layout", str(PDF), "-"],
+        ["pdftotext", "-f", str(start), "-l", str(end - 1), "-layout", str(pdf), "-"],
         text=True,
         errors="replace",
     )
 
 
-def clean(text: str, title: str) -> str:
+def clean(text: str, title: str, drop_patterns: list[str]) -> str:
     pages = text.split("\x0c")
     out: list[str] = [f"# {title}", ""]
     for page in pages:
@@ -45,7 +35,7 @@ def clean(text: str, title: str) -> str:
             if not s.strip():
                 out.append("")
                 continue
-            if "OceanofPDF.com" in s:
+            if drop_patterns and any(pat in s for pat in drop_patterns):
                 continue
             if re.fullmatch(r"\d+", s.strip()):
                 continue
@@ -56,11 +46,39 @@ def clean(text: str, title: str) -> str:
 
 
 def main() -> None:
-    out_dir = ROOT / "source" / "chapters"
+    parser = argparse.ArgumentParser(description="Extract chapters for a book profile")
+    add_book_cli_args(parser)
+    parser.add_argument(
+        "--pdf",
+        type=Path,
+        default=None,
+        help="Override source PDF path from the book profile",
+    )
+    args = parser.parse_args()
+    book = load_book(args.book)
+
+    pdf = args.pdf or book.paths.source_pdf
+    if not pdf or not Path(pdf).exists():
+        raise SystemExit(
+            f"Source PDF not found for book '{book.id}'. "
+            f"Set paths.source_pdf in books/{book.id}/book.json or pass --pdf."
+        )
+    if not book.extract_chapters:
+        raise SystemExit(
+            f"No extract_chapters defined in books/{book.id}/book.json"
+        )
+
+    out_dir = book.paths.source_chapters
     out_dir.mkdir(parents=True, exist_ok=True)
-    for slug, title, start, end in CHAPTERS:
+    drop = list(book.raw.get("extract_drop_patterns") or [])
+
+    for ch in book.extract_chapters:
+        slug = ch["slug"]
+        title = ch["title"]
+        start = int(ch["start_page"])
+        end = int(ch["end_page"])
         path = out_dir / f"{slug}.md"
-        text = clean(extract_range(start, end), title)
+        text = clean(extract_range(Path(pdf), start, end), title, drop)
         path.write_text(text, encoding="utf-8")
         words = len(text.split())
         print(f"{path.name}: pages {start}-{end - 1}, words~{words}")

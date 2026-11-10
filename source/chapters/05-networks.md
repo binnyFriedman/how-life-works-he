@@ -59,6 +59,8 @@ we’ve seen, a lot of the regulation is conducted not by proteins but by
 noncoding RNA molecules of many kinds. That was not obviously a
 problem for the general principle: it just meant that the network had more
 types of component, and more connections.
+![Fig. 5.1 The network of interactions between some genes associated with breast cancer. Image](media/fig-5.1.png)
+
 Fig. 5.1 The network of interactions between some genes associated with breast cancer. Image
 courtesy of Emmert-Streib et al. (2014).
 
@@ -112,6 +114,8 @@ the triangular array in which they were sequestered before the opening
 break shot. And what happens if one element is still missing? Will the rest
 still kind of work, but not so well, or will it fail just like a watch mechanism
 that lacks a cog?
+
+![Fig. 5.2 This protein “complex” (each blob representing a different molecule) was postulated in the](media/fig-5.2.png)
 
 Fig. 5.2 This protein “complex” (each blob representing a different molecule) was postulated in the
 early 2000s to account for how some human genes are regulated. In reality, a well-defined entity like
@@ -171,6 +175,8 @@ one another at any instant? It looks like trying to pass on a super-important
 message by sending the messenger and recipient to different stations on the
 London Underground at rush hour, and hoping they just happen to bump
 into and recognize one another as they make randomly chosen journeys.
+![Fig. 5.3 A computer simulation of euchromatin. Each bead represents a single nucleosome: a disk of](media/fig-5.3.png)
+
 Fig. 5.3 A computer simulation of euchromatin. Each bead represents a single nucleosome: a disk of
 histone proteins wrapped around its edge with DNA. Image courtesy of Quinn MacPherson and
 Andrew Spakowitz, Stanford University (see MacPherson et al. 2020).
@@ -194,8 +200,12 @@ together, binding them with a little hoop that acts like the lariat knot of a
 lasso. This hoop can slide along the strand to make the loop grow or shrink
 (fig. 5.5).
 
+![Fig. 5.4 Enhancers distant from the gene they regulate (with a nearby promoter) are thought to be](media/fig-5.4.png)
+
 Fig. 5.4 Enhancers distant from the gene they regulate (with a nearby promoter) are thought to be
 brought into proximity via loops of chromatin.
+![Fig. 5.5 How chromatin loops are regulated by cohesin and the protein CTCF.](media/fig-5.5.png)
+
 Fig. 5.5 How chromatin loops are regulated by cohesin and the protein CTCF.
 
    The hoop is made of a cluster of four proteins, collectively called
@@ -242,6 +252,8 @@ promoter partnerships. It looks, then, as though gene expression is regulated
 not so much by switches as by committee. That complexity is what once
 prompted researchers rather desperately to invoke complexes of many
 molecules like that in fig. 5.2.
+![Fig. 5.6 Some of the typical genomic elements involved in the transcriptional module of a metazoan](media/fig-5.6.png)
+
 Fig. 5.6 Some of the typical genomic elements involved in the transcriptional module of a metazoan
 gene.
 
@@ -577,6 +589,8 @@ mammals, each encoded by a different gene—can bind to the receptors and
 convey different signals. Because the binding of BMPs to BMP receptors
 can be altered by other molecules, the BMP pathway can interact with other
 pathways to create crosstalk between cells during development.
+![Fig. 5.7 How BMP proteins take part in cell signaling. The binding of a BMP to its receptor protein](media/fig-5.7.png)
+
 Fig. 5.7 How BMP proteins take part in cell signaling. The binding of a BMP to its receptor protein
 in a cell membrane triggers phosphorylation of (i.e., addition of phosphoryl, P, to) a protein called a
 Smad on the other side of the membrane. This modified Smad, in combination with other varieties of
@@ -605,6 +619,8 @@ the binding propensities between ten major mammalian forms of BMPs and
 seven receptor subunits (all in mouse cells). That meant studying a lot of
 combinations, but it was made possible with an automated robotic system
 for carrying out the reactions in cell cultures.
+![Fig. 5.8 In the combinatorial BMP signaling pathway, different BMPs can dock into different](media/fig-5.8.png)
+
 Fig. 5.8 In the combinatorial BMP signaling pathway, different BMPs can dock into different
 receptors, and different combinations will have various effects on the cells. Here, for simplicity, I
 show each BMP as a single entity and the receptors as pairs of subunits; in reality each of those
@@ -830,6 +846,8 @@ acknowledge that there are higher-level entities and influences that must be
 recognized as every bit as real and fundamental as their constituent parts,
 and not just as arbitrary ways to aggregate them. These are the causes of
 what transpires—and they are not just the sum of lots of microcauses.
+![Fig. 5.9 Emergence refers to the appearance of behaviors or outcomes in complex systems that can’t](media/fig-5.9.png)
+
 Fig. 5.9 Emergence refers to the appearance of behaviors or outcomes in complex systems that can’t
 be understood purely from a study (however exhaustive) of their component elements. It can be seen,
 for example, in the flocking of birds and the appearance of traffic jams. Images: Shutterstock.
@@ -952,6 +970,8 @@ evolutionary biologist Iñaki Ruiz-Trillo and his coworkers have studied the
 genome of a single-celled eukaryote called Capsaspora owczarzaki, one of
 the closest evolutionary relatives of the first multicellular animals, such as
 sponges and the marine organisms called cnidarians and ctenophores.
+![Fig. 5.10 Causal emergence is more evident in eukaryotes, especially multicellular complex](media/fig-5.10.png)
+
 Fig. 5.10 Causal emergence is more evident in eukaryotes, especially multicellular complex
 organisms, than in prokaryotes. In other words, evolution produces “causal spreading,” in which
 causation is increasingly conferred on higher organization levels. This graph is a so-called violin plot,
