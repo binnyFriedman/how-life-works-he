@@ -255,19 +255,27 @@ h3 {
   text-wrap: pretty;
 }
 
+.poem {
+  max-width: var(--measure);
+  margin: 1.5rem 0 1.5rem;
+  font-size: calc(clamp(1.15rem, 1.05rem + 0.4vw, 1.32rem) * var(--font-scale));
+  line-height: calc(1.7 * var(--line-scale));
+  color: var(--ink);
+  white-space: normal;
+}
+
 .lead {
   font-size: calc(clamp(1.25rem, 1.1rem + 0.5vw, 1.45rem) * var(--font-scale));
   line-height: calc(1.8 * var(--line-scale));
 }
 
 .drop {
-  float: inline-start;
-  font-size: calc(4.4rem * var(--font-scale));
-  line-height: 0.8;
-  padding-inline-end: 0.12em;
-  padding-block-start: 0.12em;
+  font-size: calc(2.75em * var(--font-scale));
+  line-height: 1;
   font-weight: 700;
   color: var(--accent);
+  padding-inline-end: 0.04em;
+  vertical-align: baseline;
 }
 
 .figure {

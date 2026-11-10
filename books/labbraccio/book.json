@@ -1,0 +1,462 @@
+{
+  "id": "labbraccio",
+  "title": "L'Abbraccio",
+  "title_target": "החיבוק",
+  "author": "Camilla Bertoluzza",
+  "author_target": "קמילה ברטולוצה",
+  "source_lang": "it",
+  "target_lang": "he",
+  "layout": "book-local",
+  "register": "intimate diary-memoir Hebrew — embodied, emotionally precise, never empty lyricism",
+  "description": "Camilla Bertoluzza, *L'Abbraccio* — an intimate Italian diary-style memoir",
+  "storage_key_prefix": "book-labbraccio-reader",
+  "paths": {
+    "source_pdf": "LAbbraccio-Camilla-Bertoluzza.pdf",
+    "source_chapters": "source/chapters",
+    "work": "work",
+    "translated": "translated",
+    "glossary": "translated/glossary.json",
+    "prompt": "prompts/translate.md",
+    "docs": "docs",
+    "queue": "work/queue.json"
+  },
+  "defaults": {
+    "chunk_size": 12000,
+    "concurrency": 1,
+    "test_chapter": "00-prologo"
+  },
+  "include_sections": [
+    "Prologo",
+    "body sections through Meraviglia"
+  ],
+  "skip_sections": [
+    "cover / title page",
+    "Biografia",
+    "contact / address block",
+    "running page numbers"
+  ],
+  "extract_drop_patterns": [],
+  "extra_prompt_rules": [
+    "Diary intimacy is welcome; cut empty scenic drift — every image should reveal inner life or advance feeling.",
+    "Prefer concrete sensory verbs over abstract spiritual jargon when both would fit.",
+    "Keep short poetic line-breaks when the source uses them; do not flatten verse into prose.",
+    "Preserve the first-person immediacy — we should feel we are inside her present moment.",
+    "Israel / Hebrew-reader cultural competence: later chapters explain Israeli life, places, holidays, and customs to a foreign (Italian) reader. Hebrew readers already know this culture — do not over-explain the obvious. Drop or compress didactic asides that only exist to teach a foreigner what Shabbat, Kippur, Sukkot, hummus, army slang, place names, or everyday Israeli norms are. Keep the narrator's personal discovery, emotion, and concrete scenes; cut tourist-guidebook gloss when the Hebrew audience needs none. Prefer natural Israeli Hebrew wording over translated foreigner-explanations.",
+    "English-in-Italian apparatus: the Italian edition often prints an English quote with a trailing footnote digit (cakes1, War7, Thank you11) and later a 'Traduzione:' Italian gloss. For Hebrew: (1) strip those footnote digits, (2) never keep both the English quote and a תרגום/Traduzione gloss — render spoken dialogue once in natural Hebrew, (3) keep English only for ambient signs/slogans Israelis already read as-is (e.g. BRING THEM HOME NOW, Stop This Fucking War) with no digit and no gloss."
+  ],
+  "extract_chapters": [
+    {
+      "slug": "00-prologo",
+      "title": "Prologo",
+      "start_page": 2,
+      "end_page": 4
+    },
+    {
+      "slug": "01-sufi",
+      "title": "Sufi",
+      "start_page": 4,
+      "end_page": 8
+    },
+    {
+      "slug": "02-musica-e-silenzio",
+      "title": "Musica e silenzio",
+      "start_page": 8,
+      "end_page": 10
+    },
+    {
+      "slug": "03-arcobaleno",
+      "title": "Arcobaleno",
+      "start_page": 10,
+      "end_page": 13
+    },
+    {
+      "slug": "04-pianoforte",
+      "title": "Pianoforte",
+      "start_page": 13,
+      "end_page": 19
+    },
+    {
+      "slug": "05-di-musica-si-danza",
+      "title": "Di musica si danza",
+      "start_page": 19,
+      "end_page": 22
+    },
+    {
+      "slug": "06-kippur",
+      "title": "Kippur",
+      "start_page": 22,
+      "end_page": 28
+    },
+    {
+      "slug": "07-honey",
+      "title": "Honey",
+      "start_page": 28,
+      "end_page": 33
+    },
+    {
+      "slug": "08-banchetto-nel-bosco",
+      "title": "Banchetto nel bosco",
+      "start_page": 33,
+      "end_page": 37
+    },
+    {
+      "slug": "09-fiore-e-bocciolo",
+      "title": "Fiore e bocciolo",
+      "start_page": 37,
+      "end_page": 39
+    },
+    {
+      "slug": "10-nitzan",
+      "title": "Nitzan",
+      "start_page": 39,
+      "end_page": 48
+    },
+    {
+      "slug": "11-sukkot",
+      "title": "Sukkot",
+      "start_page": 48,
+      "end_page": 54
+    },
+    {
+      "slug": "12-luna-piena",
+      "title": "Luna piena",
+      "start_page": 54,
+      "end_page": 55
+    },
+    {
+      "slug": "13-reale",
+      "title": "Reale",
+      "start_page": 55,
+      "end_page": 59
+    },
+    {
+      "slug": "14-cocomeri",
+      "title": "Cocomeri",
+      "start_page": 59,
+      "end_page": 61
+    },
+    {
+      "slug": "15-di-bocca-in-bocca",
+      "title": "Di bocca in bocca",
+      "start_page": 61,
+      "end_page": 66
+    },
+    {
+      "slug": "16-oceano-mare",
+      "title": "Oceano mare",
+      "start_page": 66,
+      "end_page": 71
+    },
+    {
+      "slug": "17-alla-rovescia",
+      "title": "Alla rovescia",
+      "start_page": 71,
+      "end_page": 74
+    },
+    {
+      "slug": "18-per-cui-sto-scrivendo",
+      "title": "Per cui sto scrivendo questo libro",
+      "start_page": 74,
+      "end_page": 75
+    },
+    {
+      "slug": "19-centro-di-gravita",
+      "title": "Centro di gravità",
+      "start_page": 75,
+      "end_page": 79
+    },
+    {
+      "slug": "20-a-love-letter",
+      "title": "A Love Letter",
+      "start_page": 79,
+      "end_page": 80
+    },
+    {
+      "slug": "21-tribu",
+      "title": "Tribù",
+      "start_page": 80,
+      "end_page": 89
+    },
+    {
+      "slug": "22-dolce-far-nulla",
+      "title": "Dolce far nulla",
+      "start_page": 89,
+      "end_page": 91
+    },
+    {
+      "slug": "23-e-come-ridere",
+      "title": "è come ridere",
+      "start_page": 91,
+      "end_page": 93
+    },
+    {
+      "slug": "24-tutto-e-toccare",
+      "title": "Tutto è Toccare. Toccare è tutto",
+      "start_page": 93,
+      "end_page": 100
+    },
+    {
+      "slug": "25-traiettorie",
+      "title": "Traiettorie",
+      "start_page": 100,
+      "end_page": 102
+    },
+    {
+      "slug": "26-creta",
+      "title": "Creta",
+      "start_page": 102,
+      "end_page": 106
+    },
+    {
+      "slug": "27-spazi-interstiziali",
+      "title": "Spazi interstiziali",
+      "start_page": 106,
+      "end_page": 110
+    },
+    {
+      "slug": "28-liberta",
+      "title": "Libertà",
+      "start_page": 110,
+      "end_page": 112
+    },
+    {
+      "slug": "29-contenitore",
+      "title": "Contenitore",
+      "start_page": 112,
+      "end_page": 114
+    },
+    {
+      "slug": "30-meraviglia",
+      "title": "Meraviglia",
+      "start_page": 114,
+      "end_page": 118
+    }
+  ],
+  "reader": {
+    "kicker": "L'Abbraccio · תרגום עברי",
+    "kicker_chapter": "L'Abbraccio · תרגום עברי · Gemini",
+    "home_title": "החיבוק",
+    "home_brand": "החיבוק",
+    "home_lead": "קמילה ברטולוצה — תרגום עברי (טיוטה מלאה). סגנון יומן אינטימי.",
+    "home_meta": "{n} פרקים · Gemini · RTL",
+    "chapters": [
+      {
+        "slug": "00-prologo",
+        "dir": "00-prologo",
+        "title": "פרולוג",
+        "brand": "פרולוג",
+        "nav_label": "פרולוג"
+      },
+      {
+        "slug": "01-sufi",
+        "dir": "01-sufi",
+        "title": "סופי",
+        "brand": "סופי",
+        "nav_label": "סופי"
+      },
+      {
+        "slug": "02-musica-e-silenzio",
+        "dir": "02-musica-e-silenzio",
+        "title": "מוזיקה ושקט",
+        "brand": "מוזיקה ושקט",
+        "nav_label": "מוזיקה"
+      },
+      {
+        "slug": "03-arcobaleno",
+        "dir": "03-arcobaleno",
+        "title": "קשת בענן",
+        "brand": "קשת בענן",
+        "nav_label": "קשת"
+      },
+      {
+        "slug": "04-pianoforte",
+        "dir": "04-pianoforte",
+        "title": "פסנתר",
+        "brand": "פסנתר",
+        "nav_label": "פסנתר"
+      },
+      {
+        "slug": "05-di-musica-si-danza",
+        "dir": "05-di-musica-si-danza",
+        "title": "על מוזיקה רוקדים",
+        "brand": "על מוזיקה רוקדים",
+        "nav_label": "ריקוד"
+      },
+      {
+        "slug": "06-kippur",
+        "dir": "06-kippur",
+        "title": "כיפור",
+        "brand": "כיפור",
+        "nav_label": "כיפור"
+      },
+      {
+        "slug": "07-honey",
+        "dir": "07-honey",
+        "title": "האני",
+        "brand": "האני",
+        "nav_label": "האני"
+      },
+      {
+        "slug": "08-banchetto-nel-bosco",
+        "dir": "08-banchetto-nel-bosco",
+        "title": "משתה ביער",
+        "brand": "משתה ביער",
+        "nav_label": "משתה"
+      },
+      {
+        "slug": "09-fiore-e-bocciolo",
+        "dir": "09-fiore-e-bocciolo",
+        "title": "פרח וניצן",
+        "brand": "פרח וניצן",
+        "nav_label": "פרח"
+      },
+      {
+        "slug": "10-nitzan",
+        "dir": "10-nitzan",
+        "title": "ניצן",
+        "brand": "ניצן",
+        "nav_label": "ניצן"
+      },
+      {
+        "slug": "11-sukkot",
+        "dir": "11-sukkot",
+        "title": "סוכות",
+        "brand": "סוכות",
+        "nav_label": "סוכות"
+      },
+      {
+        "slug": "12-luna-piena",
+        "dir": "12-luna-piena",
+        "title": "ירח מלא",
+        "brand": "ירח מלא",
+        "nav_label": "ירח"
+      },
+      {
+        "slug": "13-reale",
+        "dir": "13-reale",
+        "title": "אמיתי",
+        "brand": "אמיתי",
+        "nav_label": "אמיתי"
+      },
+      {
+        "slug": "14-cocomeri",
+        "dir": "14-cocomeri",
+        "title": "אבטיחים",
+        "brand": "אבטיחים",
+        "nav_label": "אבטיחים"
+      },
+      {
+        "slug": "15-di-bocca-in-bocca",
+        "dir": "15-di-bocca-in-bocca",
+        "title": "מפה לפה",
+        "brand": "מפה לפה",
+        "nav_label": "מפה לפה"
+      },
+      {
+        "slug": "16-oceano-mare",
+        "dir": "16-oceano-mare",
+        "title": "אוקיינוס ים",
+        "brand": "אוקיינוס ים",
+        "nav_label": "אוקיינוס"
+      },
+      {
+        "slug": "17-alla-rovescia",
+        "dir": "17-alla-rovescia",
+        "title": "הפוך",
+        "brand": "הפוך",
+        "nav_label": "הפוך"
+      },
+      {
+        "slug": "18-per-cui-sto-scrivendo",
+        "dir": "18-per-cui-sto-scrivendo",
+        "title": "למה אני כותבת את הספר הזה",
+        "brand": "למה אני כותבת את הספר הזה",
+        "nav_label": "למה"
+      },
+      {
+        "slug": "19-centro-di-gravita",
+        "dir": "19-centro-di-gravita",
+        "title": "מרכז כובד",
+        "brand": "מרכז כובד",
+        "nav_label": "מרכז כובד"
+      },
+      {
+        "slug": "20-a-love-letter",
+        "dir": "20-a-love-letter",
+        "title": "מכתב אהבה",
+        "brand": "מכתב אהבה",
+        "nav_label": "מכתב אהבה"
+      },
+      {
+        "slug": "21-tribu",
+        "dir": "21-tribu",
+        "title": "שבט",
+        "brand": "שבט",
+        "nav_label": "שבט"
+      },
+      {
+        "slug": "22-dolce-far-nulla",
+        "dir": "22-dolce-far-nulla",
+        "title": "מתיקות העצלות",
+        "brand": "מתיקות העצלות",
+        "nav_label": "עצלות"
+      },
+      {
+        "slug": "23-e-come-ridere",
+        "dir": "23-e-come-ridere",
+        "title": "זה כמו לצחוק",
+        "brand": "זה כמו לצחוק",
+        "nav_label": "צחוק"
+      },
+      {
+        "slug": "24-tutto-e-toccare",
+        "dir": "24-tutto-e-toccare",
+        "title": "הכול הוא מגע",
+        "brand": "הכול הוא מגע",
+        "nav_label": "מגע"
+      },
+      {
+        "slug": "25-traiettorie",
+        "dir": "25-traiettorie",
+        "title": "מסלולים",
+        "brand": "מסלולים",
+        "nav_label": "מסלולים"
+      },
+      {
+        "slug": "26-creta",
+        "dir": "26-creta",
+        "title": "כרתים",
+        "brand": "כרתים",
+        "nav_label": "כרתים"
+      },
+      {
+        "slug": "27-spazi-interstiziali",
+        "dir": "27-spazi-interstiziali",
+        "title": "חללים ביניים",
+        "brand": "חללים ביניים",
+        "nav_label": "חללים"
+      },
+      {
+        "slug": "28-liberta",
+        "dir": "28-liberta",
+        "title": "חופש",
+        "brand": "חופש",
+        "nav_label": "חופש"
+      },
+      {
+        "slug": "29-contenitore",
+        "dir": "29-contenitore",
+        "title": "כלי קיבול",
+        "brand": "כלי קיבול",
+        "nav_label": "כלי"
+      },
+      {
+        "slug": "30-meraviglia",
+        "dir": "30-meraviglia",
+        "title": "פליאה",
+        "brand": "פליאה",
+        "nav_label": "פליאה"
+      }
+    ]
+  }
+}

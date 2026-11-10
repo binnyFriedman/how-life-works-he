@@ -59,6 +59,39 @@ def drop_cap_paragraph(text: str) -> str:
     return f'{before}<span class="drop">{esc(first)}</span>{after}'
 
 
+def fold_letters(text: str) -> str:
+    """Letters/digits only, for title-echo comparison (ignores punctuation/spaces)."""
+    return re.sub(r"[^\u0590-\u05FFa-zA-Z0-9]", "", text).casefold()
+
+
+def title_fold_keys(title: str) -> set[str]:
+    keys = {fold_letters(title)}
+    no_num = re.sub(r"^\d+\s*", "", normalize_ws(title))
+    keys.add(fold_letters(no_num))
+    return {k for k in keys if k}
+
+
+def is_title_echo(text: str, title: str) -> bool:
+    """True when a paragraph is only the chapter title/subtitle, not body prose.
+
+    Catches echoes like 'פרולוג.' and short title+subtitle mashes like
+    'קץ המכונה מבט חדש על החיים', but keeps long opening paragraphs that
+    deliberately begin with the title wording.
+    """
+    key = fold_letters(text)
+    if not key:
+        return False
+    titles = title_fold_keys(title)
+    if key in titles:
+        return True
+    # Short pre-body block that merely restates the title (optional subtitle).
+    if len(normalize_ws(text)) <= 80:
+        for t in titles:
+            if t and key.startswith(t):
+                return True
+    return False
+
+
 def md_to_article_body(md: str, chapter_title: str, kicker: str) -> str:
     lines = md.replace("\r\n", "\n").replace("\r", "\n").split("\n")
     blocks: list[str] = []
@@ -71,29 +104,39 @@ def md_to_article_body(md: str, chapter_title: str, kicker: str) -> str:
         nonlocal saw_lead
         if not para:
             return
-        text = normalize_ws(" ".join(para))
+        lines_in = [normalize_ws(p) for p in para if normalize_ws(p)]
         para.clear()
-        if not text:
+        if not lines_in:
             return
-        if text == title_norm or text.replace(" ", "") == title_norm.replace(" ", ""):
+        # Multi-line short blocks are poems — keep line breaks (don't join to prose).
+        is_poem = len(lines_in) >= 2 and all(len(l) <= 72 for l in lines_in)
+        text = " ".join(lines_in) if not is_poem else "\n".join(lines_in)
+        if not text.strip():
+            return
+        if is_title_echo(" ".join(lines_in), title_norm):
             return
         if (
             not saw_lead
-            and len(text) <= 40
-            and " " not in text.strip()
-            and re.fullmatch(r"[\u0590-\u05FFA-Za-z0-9־\-]+", text)
+            and len(" ".join(lines_in)) <= 40
+            and " " not in " ".join(lines_in).strip()
+            and re.fullmatch(r"[\u0590-\u05FFA-Za-z0-9־\-]+[.!?…]?", " ".join(lines_in))
         ):
             return
-        if is_figure_caption(text):
-            blocks.append(f'<p class="caption">{esc(text)}</p>')
+        if is_figure_caption(" ".join(lines_in)):
+            blocks.append(f'<p class="caption">{esc(" ".join(lines_in))}</p>')
+            return
+        if is_poem:
+            saw_lead = True
+            poem_html = "<br>\n".join(esc(l) for l in lines_in)
+            blocks.append(f'<p class="poem">{poem_html}</p>')
             return
         if not saw_lead:
             saw_lead = True
             blocks.append(
-                f'<p class="prose lead">{drop_cap_paragraph(text)}</p>'
+                f'<p class="prose lead">{drop_cap_paragraph(" ".join(lines_in))}</p>'
             )
             return
-        blocks.append(f'<p class="prose">{esc(text)}</p>')
+        blocks.append(f'<p class="prose">{esc(" ".join(lines_in))}</p>')
 
     for raw in lines:
         line = raw.rstrip()
